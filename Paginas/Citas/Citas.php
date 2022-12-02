@@ -111,8 +111,6 @@ $query_citas->execute();
             </tr>
             <?php
             foreach ($query_citas as $inf) {
-                $query_doctor = $con->prepare("SELECT NOMBRE FROM DOCTOR WHERE ID_Medico ='$inf['ID_Medico']'");
-                $query_doctor->execute();
             ?>
                 <tr id="info_tabla">
                     <td scope="row"> <?php echo $inf['ID_CITA']; ?></td>
