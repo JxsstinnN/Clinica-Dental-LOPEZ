@@ -100,13 +100,15 @@ $query_citas->execute();
 
         <table class="table align-middle mb-0 bg-white" id="miTabla">
             <tr class="table-heading" id="Table-header">
-                <th scope="col">ID</th>
+                <th scope="col">ID_CITA</th>
                 <th scope="col">Titulo</th>
-                <th scope="col">Notas1</th>
+                <th scope="col">Notas</th>
                 <th scope="col">Mensaje</th>
                 <th scope="col">Fecha_Cita</th>
+                <th scope="col">Hora_Cita</th>
                 <th scope="col">Nombre_Paciente</th>
                 <th scope="col">Medico_Asignado</th>
+                <th scope="col">Usuario_Creador</th>
                 <th scope="col">Costo</th>
             </tr>
             <?php
