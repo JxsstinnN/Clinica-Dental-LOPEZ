@@ -7,22 +7,12 @@
   --btnnicetext:#21475b;
 }
 
-#BtnAgregarDoc
+.btn btn-primary
 {
   color: #D8EBFA;
-
+  text-decoration: none;
 }
-
-#BuscarInput
-{
-  float: right;
-  clear: both;
-  size: 50px;
-}
-
-
-
-    #miTabla 
+    .rwd-table 
     {
     font-family: 'Inter', sans-serif;
     }
@@ -58,10 +48,6 @@
     margin-top: 10px;
     }
 
-    #info_tabla td
-    {
-      font-size: 16px;
-    }
     td a
     {
       text-decoration:none;
@@ -100,11 +86,11 @@
 	opacity: 1;
 }
 .wrapper {
-	margin: 120px auto;
+	margin: 70px auto;
 	padding: 20px;
 	background: #e7e7e7;
 	border-radius: 5px;
-	width: 40%;
+	width: 30%;
 	position: relative;
 	transition: all 5s ease-in-out;
 }

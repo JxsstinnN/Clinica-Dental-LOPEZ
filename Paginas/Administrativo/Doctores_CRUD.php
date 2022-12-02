@@ -1,9 +1,9 @@
 <?php
 require_once "../../Clases/config.php";
 
-//Consultar Información Adicional de la citas
-$query_citas = $con->prepare("SELECT * FROM CITAS");
-$query_citas->execute();
+//Consultar Datos de los medicos
+$query_medic = $con->prepare("SELECT * FROM MEDICO");
+$query_medic->execute();
 
 ?>
 <!DOCTYPE html>
@@ -54,23 +54,23 @@ $query_citas->execute();
                 </div>
             </a>
 
-            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/pruebalista.php">
+            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/pruebalista.php" class="selected">
                 <div class="option">
                     <i class="fa-solid fa-user-doctor" title="Doctores"></i>
                     <h4>Doctores</h4>
                 </div>
             </a>
 
-            <a href="../Pacientes_CRUD.php">
+            <a href="Pacientes_CRUD.php">
                 <div class="option">
                     <i class='bx bx-group' title="Pacientes"></i>
                     <h4>Pacientes</h4>
                 </div>
             </a>
 
-            <a href="../Pacientes/Citas.php" class="selected">
+            <a href="#">
                 <div class="option">
-                    <i class="fa-solid fa-calendar-check"></i>
+                    <i class="far fa-sticky-note" title="Blog"></i>
                     <h4>Citas</h4>
                 </div>
             </a>
@@ -92,7 +92,7 @@ $query_citas->execute();
     <main>
         <input type="text" id="BuscarInput" onkeyup="Sort()" placeholder="Busqueda" title="Type in a name" size="20">
 
-        <button type="button" class="btn btn-primary" id="BtnAgregarDoc"><a href="?action=insert">Agregar nueva cita </a></button>
+        <button type="button" class="btn btn-primary" id="BtnAgregarDoc"><a href="?action=insert">Agregar nuevo dotor </a></button>
         <!-- Script para buscar por nombres-->
         <script src="../../JS/sort.js"></script>
 
@@ -100,41 +100,36 @@ $query_citas->execute();
 
         <table class="table align-middle mb-0 bg-white" id="miTabla">
             <tr class="table-heading" id="Table-header">
-                <th scope="col">ID_CITA</th>
-                <th scope="col">Titulo</th>
-                <th scope="col">Notas</th>
-                <th scope="col">Mensaje</th>
-                <th scope="col">Fecha_Cita</th>
-                <th scope="col">Hora_Cita</th>
-                <th scope="col">Nombre_Paciente</th>
-                <th scope="col">Medico_Asignado</th>
-                <th scope="col">Usuario_Creador</th>
-                <th scope="col">Costo</th>
+                <th scope="col">Nombre Doctor</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Fecha_Nacimiento</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Eventos</th>
             </tr>
             <?php
-            foreach ($query_citas as $inf) {
+            foreach ($query_medic as $inf) {
             ?>
                 <tr id="info_tabla">
-                    <td scope="row"> <?php echo $inf['ID_CITA']; ?></td>
-                    <td> <?php echo $inf['Titulo']; ?></td>
-                    <td> <?php echo $inf['Notas']; ?></td>
-                    <td> <?php echo $inf['Mensaje']; ?></td>
-                    <td> <?php echo $inf['Fecha_Cita']; ?></td>
-                    <td> <?php echo $inf['Hora_Cita']; ?></td>
-                    <td> <?php echo $inf['ID_Paciente']; ?></td>
-                    <td> <?php echo $inf['ID_Medico']; ?></td>
-                    <td> <?php echo $inf['User_ID']; ?></td>
-                    <td> <?php echo $inf['Costo']; ?></td>
+                    <td scope="row"> <?php echo $inf['ID_Medico']; ?></td>
+                    <td> <?php echo $inf['Nombre']; ?></td>
+                    <td> <?php echo $inf['Apellido']; ?></td>
+                    <td> <?php echo $inf['Cedula']; ?></td>
+                    <td> <?php echo $inf['Fecha_Nacimiento']; ?></td>
+                    <td> <?php echo $inf['Direccion']; ?></td>
+                    <td> <?php echo $inf['Telefono']; ?></td>
                     <td>
-                        <a href="?action=view&id=<?php echo $inf['ID_CITA'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
+                        <a href="?action=view&id=<?php echo $inf['ID_Medico'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
                                 <font class="tn-in-text">Ver</font>
                             </button></a>
                         &nbsp;&nbsp;&nbsp;
-                        <a href="?action=edit&id=<?php echo $inf['ID_CITA']; ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit">
+                        <a href="?action=edit&id=<?php echo $inf['ID_Medico']; ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit">
                                 <font class="tn-in-text">Editar</font>
                             </button> </a>
                         &nbsp;&nbsp;&nbsp;
-                        <a href="?action=drop&id=<?php echo $inf['ID_CITA'] . '&name=' . $inf['ID_Paciente'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
+                        <a href="?action=drop&id=<?php echo $inf['ID_Medico'] . '&name=' . $inf['Nombre'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
                                 <font class="tn-in-text">Remove</font>
                             </button></a>
                     </td>
@@ -180,27 +175,37 @@ if ($_GET) {
     <a href='Doctores_CRUD.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
+
     <label>Nombre:</label>
     <strong>" . $Nombre . "</strong>
     <br>
+
 <label>Apellido:</label>
 <strong>" . $Apellido . "</strong>
 <br>
+
 <label>Cedula:</label>
 <strong>" . $Cedula . "</strong>
 <br>
+
 <label>Genero:</label>
 <strong>" . $Genero . "</strong>
 <br>
+
 <label>Fecha de Nacimiento:</label>
 <strong>" . $Fecha_Nac . "</strong>
 <br>
+
 <label>Direccion</label>
 <strong>$Direccion</strong>
 <br>
+
 <label>Telefono</label>
 <strong>$Telefono</strong>
 <br>
+
+
+
 </div>
 </div>
 </div>
@@ -230,26 +235,33 @@ if ($_GET) {
     <input type='text' name='nombre_medico' id='nombre_medico ' value='" . $Nombre . "'>
     <input type='hidden' name='id' value='" . $id . "'>
     <br>
+
     <label for='apellido'>Apellido:</label>
     <input type='text' name='ape_medico' id='ape_medico' value='" . $Apellido . "'>
     <br>
+
     <label for='Cedula'>Cedula:</label>
     <input type='text' name='cedula_medico' id='cedula_medico' value='" . $Cedula . "'>
     <br>
+
     <label for='Genero'>Genero:</label>
     <input type='text' name='genero_medico' id='genero_medico' value='" . $Genero . "'>
     <br>
+
     <label for='Fecha_Nacimiento'>Fecha de Nacimiento:</label>
     <input type='text' name='fecha_medico' id='fecha_medico' value='" . $Fecha_Nac . "'>
     <br>
+
     <label for='Direccion'>Direccion</label>
     <input type='text' name='dire_medico' id='dire_medico' value='" . $Direccion . "'>
     <br>
+
 <label for='Telefono'>Telefono</label>
     <input type='text' name='tele_medico' id='tele_medico' value='" . $Telefono . "'>
 <br>
 <input type='submit' value='Aplicar Cambios' onclick='return confirm('¿Estas seguro de Actualizar este campo?');'>
 </form>
+
 </div>
 </div>
 </div>
@@ -284,29 +296,36 @@ if ($_GET) {
     <label>Nombre:</label>
     <input type='text' name='nombre_doc' id='nombre_doc'>
     <br>
+
     <label for='apellido'>Apellido:</label>
     <input type='text' name='ape_doc' id='ape_doc'>
     <br>
+
     <label for='Cedula'>Cedula:</label>
     <input type='text' name='cedula_doc' id='cedula_doc'>
     <br>
+
     <label for='Genero'>Genero:</label>
      <select name='genero_doc' id='genero_doc'>
         <option value='F'>Femenino</option>
         <option value='M'>Masculino</option>
         </select>
     <br>
+
     <label for='Fecha_Nacimiento'>Fecha de Nacimiento:</label>
     <input type='text' name='fecha_nac_doc' id='fecha_nac_doc'>
     <br>
+
     <label for='Direccion'>Direccion</label>
     <input type='text' name='dire_doc' id='dire_doc'>
     <br>
+
 <label for='Telefono'>Telefono</label>
     <input type='text' name='telefono_doc' id='telefono_doc'>
 <br>
 <input type='submit' value='Aplicar Cambios' >
 </form>
+
 </div>
 </div>
 </div>

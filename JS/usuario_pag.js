@@ -12,6 +12,8 @@ var body = document.getElementById("body");
         side_menu.classList.toggle("menu__side_move");
     }
 
+
+
 //Si el ancho de la página es menor a 760px, ocultará el menú al recargar la página
 
 if (window.innerWidth < 760){
@@ -37,3 +39,16 @@ window.addEventListener("resize", function(){
     }
 
 });
+
+//Sacar la fecha actual para mostarla.
+
+    let date = new Date();
+
+    let dia = date.getDate();
+    let mes = date.getMonth() + 1;
+    let año = date.getFullYear();
+
+    let fechaActual = `${dia}-${mes}-${año}`;
+    let a = document.getElementById("fecha");
+    a.innerHTML = fechaActual;
+

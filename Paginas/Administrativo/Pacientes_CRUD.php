@@ -1,8 +1,7 @@
 <?php
 require_once "../../Clases/config.php";
-
 //Consultar Datos de los medicos
-$query_medic = $con->prepare("SELECT * FROM MEDICO");
+$query_medic = $con->prepare("SELECT * FROM pacientes");
 $query_medic->execute();
 
 ?>
@@ -14,7 +13,6 @@ $query_medic->execute();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista PHP</title>
-    <!-- Liberias-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
@@ -43,21 +41,21 @@ $query_medic->execute();
 
         <div class="options__menu">
 
-            <a href="#" class="selected">
+            <a href="Pag_usuario.php">
                 <div class="option">
                     <i class="fas fa-home" title="Inicio"></i>
                     <h4>Inicio</h4>
                 </div>
             </a>
 
-            <a href="Doctores.php">
+            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/Doctores_CRUD.php">
                 <div class="option">
-                    <i class="far fa-file" title="Portafolio"></i>
+                    <i class="far fa-file" title="Doctores"></i>
                     <h4>Doctores</h4>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="Pacientes_CRUD.php" class="selected">
                 <div class="option">
                     <i class="fas fa-video" title="Pacientes"></i>
                     <h4>Pacientes</h4>
@@ -73,7 +71,7 @@ $query_medic->execute();
 
             <a href="#">
                 <div class="option">
-                    <i class="far fa-id-badge" title="Contacto"></i>
+                    <i class='bx bx-cog' title="Contacto"></i>
                     <h4>Configuración</h4>
                 </div>
             </a>
@@ -85,47 +83,53 @@ $query_medic->execute();
 
     <!--Inicio Del contenido -->
 
+
     <main>
+        <!--Botones para hacer Querys y filtros -->
         <input type="text" id="BuscarInput" onkeyup="Sort()" placeholder="Busqueda" title="Type in a name" size="20">
 
-        <button type="button" class="btn btn-primary"><a href="?action=insert">Agregar nuevo dotor </a></button>
+        <button type="button" class="btn btn-primary" id="BtnAgregarDoc"><a href="?action=insert">Agregar nuevo dotor </a></button>
         <!-- Script para buscar por nombres-->
         <script src="../../JS/sort.js"></script>
 
-        <h1>Medicos</h1>
-
+        <h1>Listado de Pacientes</h1>
         <table class="table align-middle mb-0 bg-white" id="miTabla">
-            <tr class="table-heading">
-                <th scope="col">Nombre Doctor</th>
+            <tr class="table-heading" id="Table-header">
+                <th scope="col">ID_Paciente</th>
+                <th scope="col">Cedula</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
-                <th scope="col">Cedula</th>
+                <th scope="col">Genero</th>
                 <th scope="col">Fecha_Nacimiento</th>
                 <th scope="col">Dirección</th>
                 <th scope="col">Telefono</th>
-                <th scope="col">Eventos</th>
+                <th scope="col">Alergias</th>
+                <th scope="col">Creado en</th>
             </tr>
             <?php
             foreach ($query_medic as $inf) {
             ?>
                 <tr id="info_tabla">
-                    <td scope="row"> <?php echo $inf['ID_Medico']; ?></td>
+                    <td scope="row"> <?php echo $inf['ID_Paciente']; ?></td>
+                    <td> <?php echo $inf['Cedula']; ?></td>
                     <td> <?php echo $inf['Nombre']; ?></td>
                     <td> <?php echo $inf['Apellido']; ?></td>
-                    <td> <?php echo $inf['Cedula']; ?></td>
-                    <td> <?php echo $inf['Fecha_Nacimiento']; ?></td>
+                    <td> <?php echo $inf['Genero']; ?></td>
+                    <td> <?php echo $inf['Fecha_Nac']; ?></td>
                     <td> <?php echo $inf['Direccion']; ?></td>
                     <td> <?php echo $inf['Telefono']; ?></td>
+                    <td> <?php echo $inf['Alergias']; ?></td>
+                    <td> <?php echo $inf['Creado_En']; ?></td>
                     <td>
-                        <a href="?action=view&id=<?php echo $inf['ID_Medico'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
-                                <font class="tn-in-text">Ver</font>
-                            </button></a>
-                        &nbsp;&nbsp;&nbsp;
-                        <a href="?action=edit&id=<?php echo $inf['ID_Medico']; ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit">
+                        <a href="?action=edit&id=<?php echo $inf['ID_Paciente']; ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit">
                                 <font class="tn-in-text">Editar</font>
                             </button> </a>
                         &nbsp;&nbsp;&nbsp;
-                        <a href="?action=drop&id=<?php echo $inf['ID_Medico'] . '&name=' . $inf['Nombre'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
+                        <a href="?action=view&id=<?php echo $inf['ID_Paciente'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
+                                <font class="tn-in-text">Ver</font>
+                            </button></a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="?action=drop&id=<?php echo $inf['ID_Paciente'] . '&name=' . $inf['Nombre'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
                                 <font class="tn-in-text">Remove</font>
                             </button></a>
                     </td>
@@ -135,40 +139,39 @@ $query_medic->execute();
                 ?>
                 </tr>
         </table>
-
-        <!-- Scripts Necesarios para la pagina-->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-        <script src="../../JS/usuario_pag.js"></script>
     </main>
+
+    <!-- Scripts Necesarios para la pagina-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="../../JS/usuario_pag.js"></script>
 </body>
 
 </html>
-
+<!-- Inicio del PHP/BackEnd-->
 <?php
-
 if ($_GET) {
     $id = $_GET['id'];
     $action = $_GET['action'];
 
     if ($action == 'view') {
-        $query = $con->prepare("SELECT * FROM medico WHERE ID_MEDICO ='$id'");
+        $query = $con->prepare("SELECT * FROM pacientes WHERE ID_Paciente ='$id'");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
         $Nombre = $result['Nombre'];
         $Apellido = $result['Apellido'];
         $Cedula = $result['Cedula'];
         $Genero = $result['Genero'];
-        $Fecha_Nac = $result['Fecha_Nacimiento'];
+        $Fecha_Nac = $result['Fecha_Nac'];
         $Direccion = $result['Direccion'];
         $Telefono = $result['Telefono'];
 
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
     <h2>Ver Detalles del medico</h2>
-    <a href='pruebalista.php' class='close'>&times;</a>
+    <a href='pruebalista_pacientes.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
 
@@ -176,27 +179,27 @@ if ($_GET) {
     <strong>" . $Nombre . "</strong>
     <br>
 
-<label>Apellido:</label>
+<label for='apellido'>Apellido:</label>
 <strong>" . $Apellido . "</strong>
 <br>
 
-<label>Cedula:</label>
+<label for='Cedula'>Cedula:</label>
 <strong>" . $Cedula . "</strong>
 <br>
 
-<label>Genero:</label>
+<label for='Genero'>Genero:</label>
 <strong>" . $Genero . "</strong>
 <br>
 
-<label>Fecha de Nacimiento:</label>
+<label for='Fecha_Nacimiento'>Fecha de Nacimiento:</label>
 <strong>" . $Fecha_Nac . "</strong>
 <br>
 
-<label>Direccion</label>
+<label for='Direccion'>Direccion</label>
 <strong>$Direccion</strong>
 <br>
 
-<label>Telefono</label>
+<label for='Telefono'>Telefono</label>
 <strong>$Telefono</strong>
 <br>
 
@@ -208,52 +211,58 @@ if ($_GET) {
 </div>
 ";
     } else if ($action == 'edit') {
-        $query = $con->prepare("SELECT * FROM medico WHERE ID_MEDICO ='$id'");
+        $query = $con->prepare("SELECT * FROM pacientes WHERE ID_paciente ='$id'");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
-        $id_medic = $result['ID_Medico'];
+        $id_Paciente = $result['ID_Paciente'];
         $Nombre = $result['Nombre'];
         $Apellido = $result['Apellido'];
         $Cedula = $result['Cedula'];
         $Genero = $result['Genero'];
-        $Fecha_Nac = $result['Fecha_Nacimiento'];
+        $Alergias = $result['Alergias'];
+        $Fecha_Nac = $result['Fecha_Nac'];
         $Direccion = $result['Direccion'];
         $Telefono = $result['Telefono'];
 
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
     <h2>Editar Detalles del medico</h2>
-    <a href='pruebalista.php' class='close'>&times;</a>
+    <a href='pruebalista_pacientes.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
-    <form action='../../PHP/DOCTOR/confirm_edit.php' method='post'>
+    <form action='../../PHP/Paciente/confirm_edit.php' method='post'>
     <label>Nombre:</label>
-    <input type='text' name='nombre_medico' id='nombre_medico ' value='" . $Nombre . "'>
+    <input type='text' name='nombre_paciente' id='nombre_paciente ' value='" . $Nombre . "'>
     <input type='hidden' name='id' value='" . $id . "'>
     <br>
 
     <label for='apellido'>Apellido:</label>
-    <input type='text' name='ape_medico' id='ape_medico' value='" . $Apellido . "'>
+    <input type='text' name='ape_paciente' id='ape_paciente' value='" . $Apellido . "'>
     <br>
 
     <label for='Cedula'>Cedula:</label>
-    <input type='text' name='cedula_medico' id='cedula_medico' value='" . $Cedula . "'>
+    <input type='text' name='cedula_paciente' id='cedula_paciente' value='" . $Cedula . "'>
     <br>
 
     <label for='Genero'>Genero:</label>
-    <input type='text' name='genero_medico' id='genero_medico' value='" . $Genero . "'>
+    <input type='text' name='genero_paciente' id='genero_paciente' value='" . $Genero . "'>
     <br>
 
+    <label for='Genero'>Alergias:</label>
+    <input type='text' name='alergias_paciente' id='alergias_paciente' value='" . $Alergias . "'>
+    <br>
+
+
     <label for='Fecha_Nacimiento'>Fecha de Nacimiento:</label>
-    <input type='text' name='fecha_medico' id='fecha_medico' value='" . $Fecha_Nac . "'>
+    <input type='text' name='fecha_paciente' id='fecha_paciente' value='" . $Fecha_Nac . "'>
     <br>
 
     <label for='Direccion'>Direccion</label>
-    <input type='text' name='dire_medico' id='dire_medico' value='" . $Direccion . "'>
+    <input type='text' name='dire_paciente' id='dire_paciente' value='" . $Direccion . "'>
     <br>
 
 <label for='Telefono'>Telefono</label>
-    <input type='text' name='tele_medico' id='tele_medico' value='" . $Telefono . "'>
+    <input type='text' name='tele_paciente' id='tele_paciente' value='" . $Telefono . "'>
 <br>
 <input type='submit' value='Aplicar Cambios' onclick='return confirm('¿Estas seguro de Actualizar este campo?');'>
 </form>
@@ -267,10 +276,10 @@ if ($_GET) {
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
         <h2>Eliminar Registro de Médico</h2>
-        <a href='pruebalista.php' class='close'>&times;</a>
+        <a href='pruebalista_pacientes.php' class='close'>&times;</a>
             <div class='content'>
                 <div class='container'>
-                    <form action='DOCTOR/confirm_delete.php' method='post'>
+                    <form action='../../PHP/Paciente/confirm_delete.php' method='post'>
                         <h4>¿Desea Borrar este registo?</h4>
                             <br>
                         <h4>Estará borrando el registro <br>" . $id . "</h4>
@@ -281,53 +290,8 @@ if ($_GET) {
 </div>
 </div>
 </div>";
-    } else if ($action == "insert") {
-        echo   "<div class='overlay' id='divOne'>
-    <div class='wrapper'>
-    <h2>Insertar datos medico</h2>
-    <a href='AAAAAAAAAAAAAA.php' class='close'>&times;</a>
-    <div class='content'>
-    <div class='container'>
-    <form action='../../PHP/DOCTOR/Nuevo_doctor.php' method='post'>
-    <label>Nombre:</label>
-    <input type='text' name='nombre_doc' id='nombre_doc'>
-    <br>
-
-    <label for='apellido'>Apellido:</label>
-    <input type='text' name='ape_doc' id='ape_doc'>
-    <br>
-
-    <label for='Cedula'>Cedula:</label>
-    <input type='text' name='cedula_doc' id='cedula_doc'>
-    <br>
-
-    <label for='Genero'>Genero:</label>
-     <select name='genero_doc' id='genero_doc'>
-        <option value='F'>Femenino</option>
-        <option value='M'>Masculino</option>
-        </select>
-    <br>
-
-    <label for='Fecha_Nacimiento'>Fecha de Nacimiento:</label>
-    <input type='text' name='fecha_nac_doc' id='fecha_nac_doc'>
-    <br>
-
-    <label for='Direccion'>Direccion</label>
-    <input type='text' name='dire_doc' id='dire_doc'>
-    <br>
-
-<label for='Telefono'>Telefono</label>
-    <input type='text' name='telefono_doc' id='telefono_doc'>
-<br>
-<input type='submit' value='Aplicar Cambios' >
-</form>
-
-</div>
-</div>
-</div>
-</div>
-";
     }
 }
+
 
 ?>

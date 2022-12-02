@@ -20,6 +20,8 @@ main{
     padding: 20px;
 }
 
+
+
 header{
     width: 100%;
     height: 80px;
@@ -45,6 +47,14 @@ header{
     cursor: pointer;
     position: absolute;
 }
+
+#current-date
+{
+    float: right;
+    align-items: right;
+    justify-content: right;
+}
+
 
 .menu__side{
     width: 80px;

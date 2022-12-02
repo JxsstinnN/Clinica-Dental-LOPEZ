@@ -14,135 +14,64 @@ $query_medic->execute();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista PHP</title>
-    <!-- Liberias-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-    <!-- Fin de las Liberias-->
-    <!-- Estilos-->
-    <link rel="stylesheet" href="../../CSS/Pag_Usuarios.css">
-    <link rel="stylesheet" href="../../CSS/Tablas_Medic.css">
+    <link rel="stylesheet" href="../../CSS/AAA.css">
 </head>
 
-<body id="body">
+<body>
+    <input type="text" id="BuscarInput" onkeyup="Sort()" placeholder="Search for names.." title="Type in a name">
 
-    <header>
-        <div class="icon__menu">
-            <i class="fas fa-bars" id="btn_open"></i>
-        </div>
-    </header>
+    <button type="button" class="btn btn-primary"><a href="?action=insert">Agregar nuevo dotol </a></button>
+    <!-- Script para buscar por nombres-->
+    <script src="../../JS/sort.js"></script>
 
-    <div class="menu__side" id="menu_side">
+    <h1>Medicos</h1>
 
-        <div class="name__page">
-            <i class="fa-solid fa-hospital"></i>
-            <h4>Clinica Grullón</h4>
-        </div>
+    <table class="table align-middle mb-0 bg-white" id="miTabla">
+        <tr class="table-heading">
+            <th scope="col">Nombre Doctor</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Fecha_Nacimiento</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Eventos</th>
+        </tr>
+        <?php
+        foreach ($query_medic as $inf) {
+        ?>
+            <tr>
+                <td scope="row"> <?php echo $inf['ID_Medico']; ?></td>
+                <td> <?php echo $inf['Nombre']; ?></td>
+                <td> <?php echo $inf['Apellido']; ?></td>
+                <td> <?php echo $inf['Cedula']; ?></td>
+                <td> <?php echo $inf['Fecha_Nacimiento']; ?></td>
+                <td> <?php echo $inf['Direccion']; ?></td>
+                <td> <?php echo $inf['Telefono']; ?></td>
+                <td>
+                    <a href="?action=view&id=<?php echo $inf['ID_Medico'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
+                            <font class="tn-in-text">Ver</font>
+                        </button></a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="?action=edit&id=<?php echo $inf['ID_Medico']; ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit">
+                            <font class="tn-in-text">Editar</font>
+                        </button> </a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="?action=drop&id=<?php echo $inf['ID_Medico'] . '&name=' . $inf['Nombre'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
+                            <font class="tn-in-text">Remove</font>
+                        </button></a>
+                </td>
 
-        <div class="options__menu">
-
-            <a href="#" class="selected">
-                <div class="option">
-                    <i class="fas fa-home" title="Inicio"></i>
-                    <h4>Inicio</h4>
-                </div>
-            </a>
-
-            <a href="Doctores.php">
-                <div class="option">
-                    <i class="far fa-file" title="Portafolio"></i>
-                    <h4>Doctores</h4>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="fas fa-video" title="Pacientes"></i>
-                    <h4>Pacientes</h4>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="far fa-sticky-note" title="Blog"></i>
-                    <h4>Citas</h4>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="far fa-id-badge" title="Contacto"></i>
-                    <h4>Configuración</h4>
-                </div>
-            </a>
-
-
-        </div>
-
-    </div>
-
-    <!--Inicio Del contenido -->
-
-    <main>
-        <input type="text" id="BuscarInput" onkeyup="Sort()" placeholder="Busqueda" title="Type in a name" size="20">
-
-        <button type="button" class="btn btn-primary"><a href="?action=insert">Agregar nuevo dotor </a></button>
-        <!-- Script para buscar por nombres-->
-        <script src="../../JS/sort.js"></script>
-
-        <h1>Medicos</h1>
-
-        <table class="table align-middle mb-0 bg-white" id="miTabla">
-            <tr class="table-heading">
-                <th scope="col">Nombre Doctor</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Cedula</th>
-                <th scope="col">Fecha_Nacimiento</th>
-                <th scope="col">Dirección</th>
-                <th scope="col">Telefono</th>
-                <th scope="col">Eventos</th>
-            </tr>
             <?php
-            foreach ($query_medic as $inf) {
+        }
             ?>
-                <tr id="info_tabla">
-                    <td scope="row"> <?php echo $inf['ID_Medico']; ?></td>
-                    <td> <?php echo $inf['Nombre']; ?></td>
-                    <td> <?php echo $inf['Apellido']; ?></td>
-                    <td> <?php echo $inf['Cedula']; ?></td>
-                    <td> <?php echo $inf['Fecha_Nacimiento']; ?></td>
-                    <td> <?php echo $inf['Direccion']; ?></td>
-                    <td> <?php echo $inf['Telefono']; ?></td>
-                    <td>
-                        <a href="?action=view&id=<?php echo $inf['ID_Medico'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
-                                <font class="tn-in-text">Ver</font>
-                            </button></a>
-                        &nbsp;&nbsp;&nbsp;
-                        <a href="?action=edit&id=<?php echo $inf['ID_Medico']; ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit">
-                                <font class="tn-in-text">Editar</font>
-                            </button> </a>
-                        &nbsp;&nbsp;&nbsp;
-                        <a href="?action=drop&id=<?php echo $inf['ID_Medico'] . '&name=' . $inf['Nombre'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
-                                <font class="tn-in-text">Remove</font>
-                            </button></a>
-                    </td>
+            </tr>
+    </table>
 
-                <?php
-            }
-                ?>
-                </tr>
-        </table>
 
-        <!-- Scripts Necesarios para la pagina-->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-        <script src="../../JS/usuario_pag.js"></script>
-    </main>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

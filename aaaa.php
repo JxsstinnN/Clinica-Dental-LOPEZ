@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,6 +60,8 @@
                                        <a href="?action=drop&id=' . $docid . '&name=' . $name . '" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"><font class="tn-in-text">Remove</font></button></a>
                                         </div>
                                         </td>
+
+                                        
 </body>
 </html>
 
