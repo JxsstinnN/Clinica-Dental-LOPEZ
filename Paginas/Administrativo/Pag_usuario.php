@@ -74,9 +74,9 @@ session_start();
                 </div>
             </a>
 
-            <a href="Insertar_Citas.php">
+            <a href="Citas/Citas.php">
                 <div class="option">
-                    <i class="far fa-sticky-note" title="Blog"></i>
+                    <i class="fa-solid fa-calendar-check"></i>
                     <h4>Citas</h4>
                 </div>
             </a>
@@ -94,7 +94,7 @@ session_start();
     </div>
 
     <main>
-        <h1>Hola <?php echo $_SESSION['tipo_usuario'] .'&nbsp;'.$_SESSION['nombre']; ?></h1><br>
+        <h1>Hola <?php echo $_SESSION['tipo_usuario'] . '&nbsp;' . $_SESSION['nombre']; ?></h1><br>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam sapiente cumque dicta animi explicabo sequi. Ex amet et, dolor eligendi commodi consectetur quo voluptatibus, cum nemo porro veniam at blanditiis?</p> <br>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident adipisci beatae impedit quia, deleniti quasi sequi iusto exercitationem nihil nulla, laboriosam dolore corrupti fuga officiis? Odit a mollitia id magnam amet delectus quia blanditiis reprehenderit explicabo eveniet! Rem voluptatum explicabo ipsum quae, dolorum, laudantium doloribus a, illum saepe sapiente accusantium dicta reiciendis? Amet iure porro voluptatum error fugit odit voluptas?</p>
     </main>

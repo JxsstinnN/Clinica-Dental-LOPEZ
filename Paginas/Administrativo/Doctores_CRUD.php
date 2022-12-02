@@ -68,9 +68,9 @@ $query_medic->execute();
                 </div>
             </a>
 
-            <a href="#">
+            <a href="Citas/Citas.php">
                 <div class="option">
-                    <i class="far fa-sticky-note" title="Blog"></i>
+                    <i class="fa-solid fa-calendar-check"></i>
                     <h4>Citas</h4>
                 </div>
             </a>
