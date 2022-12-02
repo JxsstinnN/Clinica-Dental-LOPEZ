@@ -111,6 +111,8 @@ $query_citas->execute();
             </tr>
             <?php
             foreach ($query_citas as $inf) {
+                $query_doctor = $con->prepare("SELECT NOMBRE FROM DOCTOR WHERE ID_Medico ='$inf['ID_Medico']'");
+                $query_doctor->execute();
             ?>
                 <tr id="info_tabla">
                     <td scope="row"> <?php echo $inf['ID_CITA']; ?></td>
@@ -158,7 +160,7 @@ if ($_GET) {
     $action = $_GET['action'];
 
     if ($action == 'view') {
-        $query = $con->prepare("SELECT * FROM medico WHERE ID_MEDICO ='$id'");
+        $query = $con->prepare("SELECT * FROM citas WHERE ID_CITA ='$id'");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
         $Nombre = $result['Nombre'];
