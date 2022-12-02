@@ -1,14 +1,19 @@
 <?php
-session_start();
+require_once "../../Clases/config.php";
+
+//Consultar Información Adicional de la citas
+$query_citas = $con->prepare("SELECT * FROM CITAS");
+$query_citas->execute();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Lista PHP</title>
     <!-- Liberias-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -19,6 +24,8 @@ session_start();
     <!-- Estilos-->
     <link rel="stylesheet" href="../../CSS/Pag_Usuarios.css">
     <link rel="stylesheet" href="../../CSS/Tablas_Medic.css">
+    <link rel="stylesheet" href="../../CSS/Resumen_citas.css">
+
 </head>
 
 <body id="body">
@@ -31,17 +38,6 @@ session_start();
         <div id="current-date"> <span>Fecha Actual:</span>
             <div class="right-date" id="fecha">AAAAAAAAAAA</div>
         </div>
-
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?php echo $_SESSION['nombre']; ?>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="../../PHP/Sesion.php?sesion=cerrar">Cerrar sesion </a>
-            </div>
-        </div>
     </header>
 
     <div class="menu__side" id="menu_side">
@@ -53,28 +49,28 @@ session_start();
 
         <div class="options__menu">
 
-            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/Pag_usuario.php" class="selected">
+            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/Pag_usuario.php">
                 <div class="option">
                     <i class="fas fa-home" title="Inicio"></i>
                     <h4>Inicio</h4>
                 </div>
             </a>
 
-            <a href="Doctores_CRUD.php">
+            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/pruebalista.php">
                 <div class="option">
-                    <i class="far fa-file" title="Portafolio"></i>
+                    <i class="fa-solid fa-user-doctor" title="Doctores"></i>
                     <h4>Doctores</h4>
                 </div>
             </a>
 
-            <a href="Pacientes_CRUD.php">
+            <a href="../Pacientes_CRUD.php">
                 <div class="option">
                     <i class='bx bx-group' title="Pacientes"></i>
                     <h4>Pacientes</h4>
                 </div>
             </a>
 
-            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Citas/Citas.php">
+            <a href="../Pacientes/Citas.php" class="selected">
                 <div class="option">
                     <i class="fa-solid fa-calendar-check"></i>
                     <h4>Citas</h4>
@@ -90,21 +86,21 @@ session_start();
 
 
         </div>
-
     </div>
-
     <main>
-        <h1>Hola <?php echo $_SESSION['tipo_usuario'] . '&nbsp;' . $_SESSION['nombre']; ?></h1><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam sapiente cumque dicta animi explicabo sequi. Ex amet et, dolor eligendi commodi consectetur quo voluptatibus, cum nemo porro veniam at blanditiis?</p> <br>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident adipisci beatae impedit quia, deleniti quasi sequi iusto exercitationem nihil nulla, laboriosam dolore corrupti fuga officiis? Odit a mollitia id magnam amet delectus quia blanditiis reprehenderit explicabo eveniet! Rem voluptatum explicabo ipsum quae, dolorum, laudantium doloribus a, illum saepe sapiente accusantium dicta reiciendis? Amet iure porro voluptatum error fugit odit voluptas?</p>
+
+        <div class="grid-container">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+
+        </div>
+
+
+
     </main>
 
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-    <script src="../../JS/usuario_pag.js"></script>
 </body>
-
-</html>

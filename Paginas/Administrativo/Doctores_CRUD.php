@@ -68,7 +68,7 @@ $query_medic->execute();
                 </div>
             </a>
 
-            <a href="Citas/Citas.php">
+            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Citas/Citas.php">
                 <div class="option">
                     <i class="fa-solid fa-calendar-check"></i>
                     <h4>Citas</h4>
