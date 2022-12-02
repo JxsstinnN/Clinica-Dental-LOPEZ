@@ -102,8 +102,6 @@ $query_citas->execute();
             <tr class="table-heading" id="Table-header">
                 <th scope="col">ID_CITA</th>
                 <th scope="col">Titulo</th>
-                <th scope="col">Notas</th>
-                <th scope="col">Mensaje</th>
                 <th scope="col">Fecha_Cita</th>
                 <th scope="col">Hora_Cita</th>
                 <th scope="col">Nombre_Paciente</th>
@@ -117,13 +115,10 @@ $query_citas->execute();
                 <tr id="info_tabla">
                     <td scope="row"> <?php echo $inf['ID_CITA']; ?></td>
                     <td> <?php echo $inf['Titulo']; ?></td>
-                    <td> <?php echo $inf['Notas']; ?></td>
-                    <td> <?php echo $inf['Mensaje']; ?></td>
                     <td> <?php echo $inf['Fecha_Cita']; ?></td>
                     <td> <?php echo $inf['Hora_Cita']; ?></td>
                     <td> <?php echo $inf['ID_Paciente']; ?></td>
                     <td> <?php echo $inf['ID_Medico']; ?></td>
-                    <td> <?php echo $inf['User_ID']; ?></td>
                     <td> <?php echo $inf['Costo']; ?></td>
                     <td>
                         <a href="?action=view&id=<?php echo $inf['ID_CITA'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
