@@ -1,0 +1,17 @@
+.logo img
+{
+    width: 200px;
+    height: 200px;
+}
+
+.menu_des 
+{
+    list-style: none;
+    display: flex;
+}
+
+.menu_bar li
+{
+    padding: 10px 30px;
+}
+

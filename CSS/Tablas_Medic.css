@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+
+:root {
+  --primarycolor: #1984bc;
+  --btnnicetext:#21475b;
+}
+
+    .rwd-table 
+    {
+    font-family: 'Inter', sans-serif;
+    }
+
+    .table-heading
+    {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+    border-bottom: 3px solid var(--primarycolor);
+    }
+
+    .button.icon
+    {
+    background-position: 10px 50%;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+    padding: 8px 20px 8px 40px;
+    }
+        
+    .btn-primary-soft 
+    {
+    background-color: #D8EBFA;
+    /* border: 1px solid rgba(57,108,240,0.1); */
+    color: #1969AA;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    /* box-shadow: 0 3px 5px 0 rgb(57 108 240 / 30%); */
+    padding-left: 40px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 10px;
+    }
+
+    td a
+    {
+      text-decoration:none;
+    }
+
+    .btn 
+    {
+    cursor: pointer;
+    padding: 8px 20px;
+    outline: none;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    }
+
+    .box {
+	text-align: center;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.8);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+.wrapper {
+	margin: 70px auto;
+	padding: 20px;
+	background: #e7e7e7;
+	border-radius: 5px;
+	width: 30%;
+	position: relative;
+	transition: all 5s ease-in-out;
+}
+.wrapper h2 {
+	margin-top: 0;
+	color: #333;
+}
+.wrapper .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+.wrapper .close:hover {
+	color: #06D85F;
+}
+.wrapper .content {
+	max-height: 30%;
+	overflow: auto;
+}
+/*form*/
+
+.container {
+	border-radius: 5px;
+	background-color: #e7e7e7;
+	padding: 20px 0;
+}
