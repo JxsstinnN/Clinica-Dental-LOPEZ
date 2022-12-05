@@ -54,7 +54,7 @@ $query_medic->execute();
                 </div>
             </a>
 
-            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/pruebalista.php" class="selected">
+            <a href="Doctores_CRUD.php" class="selected">
                 <div class="option">
                     <i class="fa-solid fa-user-doctor" title="Doctores"></i>
                     <h4>Doctores</h4>
@@ -68,7 +68,7 @@ $query_medic->execute();
                 </div>
             </a>
 
-            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Citas/Citas.php">
+            <a href="../Citas/Citas.php">
                 <div class="option">
                     <i class="fa-solid fa-calendar-check"></i>
                     <h4>Citas</h4>
