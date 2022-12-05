@@ -2,7 +2,7 @@
 require_once "../../Clases/config.php";
 
 //Consultar Información Adicional de la citas
-$query_citas = $con->prepare("select * from citas join medico on Citas.ID_CITA = medico.ID_Medico JOIN pacientes on pacientes.ID_Paciente = citas.ID_Paciente");
+$query_citas = $con->prepare("select * from citas join medico on Citas.ID_CITA = medico.ID_Medico JOIN pacientes on pacientes.ID_Paciente = citas.ID_Paciente JOIN usuario on usuario.User_ID = citas.User_ID");
 $query_citas->execute();
 
 ?>
@@ -119,6 +119,7 @@ $query_citas->execute();
                     <td> <?php echo $inf['Hora_Cita']; ?></td>
                     <td> <?php echo $inf['Nombre_Paciente']; ?></td> <!-- Nombre de paciente -->
                     <td> <?php echo $inf['Nombre_Medico']; ?></td> <!-- Nombre del doctor -->
+                    <td> <?php echo $inf['Nombre_usuario']; ?></td>
                     <td> <?php echo $inf['Costo']; ?></td>
                     <td>
                         <a href="?action=view&id=<?php echo $inf['ID_CITA'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
@@ -161,37 +162,37 @@ if ($_GET) {
         $query = $con->prepare("SELECT * FROM citas WHERE ID_CITA ='$id'");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
-        $Nombre = $result['Nombre'];
-        $Apellido = $result['Apellido'];
-        $Cedula = $result['Cedula'];
-        $Genero = $result['Genero'];
-        $Fecha_Nac = $result['Fecha_Nacimiento'];
-        $Direccion = $result['Direccion'];
-        $Telefono = $result['Telefono'];
+        $Titulo = $result['Titulo'];
+        $Notas = $result['Notas'];
+        $Mensaje = $result['Mensaje'];
+        $Fecha_Cita = $result['Fecha_Cita'];
+        $Hora_Cita = $result['Hora_Cita'];
+        $Costo = $result['ID_Paciente'];
+
 
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
     <h2>Ver Detalles del medico</h2>
-    <a href='Doctores_CRUD.php' class='close'>&times;</a>
+    <a href='Citas.php.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
-    <label>Nombre:</label>
-    <strong>" . $Nombre . "</strong>
+    <label>Titulo de la cita:</label>
+    <strong>" . $Titulo . "</strong>
     <br>
-<label>Apellido:</label>
-<strong>" . $Apellido . "</strong>
+<label>Notas:</label>
+<strong>" . $Notas . "</strong>
 <br>
-<label>Cedula:</label>
-<strong>" . $Cedula . "</strong>
+<label>Mensaje:</label>
+<strong>" . $Mensaje . "</strong>
 <br>
-<label>Genero:</label>
-<strong>" . $Genero . "</strong>
+<label>Fecha de la cita:</label>
+<strong>" . $Fecha_Cita . "</strong>
 <br>
 <label>Fecha de Nacimiento:</label>
-<strong>" . $Fecha_Nac . "</strong>
+<strong>" . $Hora_Cita . "</strong>
 <br>
-<label>Direccion</label>
-<strong>$Direccion</strong>
+<label>Costo de la cita</label>
+<strong>".$Costo."</strong>
 <br>
 <label>Telefono</label>
 <strong>$Telefono</strong>
@@ -202,46 +203,43 @@ if ($_GET) {
 </div>
 ";
     } else if ($action == 'edit') {
-        $query = $con->prepare("SELECT * FROM medico WHERE ID_MEDICO ='$id'");
+        $query = $con->prepare("SELECT * FROM citas WHERE ID_CITA ='$id'");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
-        $id_medic = $result['ID_Medico'];
-        $Nombre = $result['Nombre'];
-        $Apellido = $result['Apellido'];
-        $Cedula = $result['Cedula'];
-        $Genero = $result['Genero'];
-        $Fecha_Nac = $result['Fecha_Nacimiento'];
-        $Direccion = $result['Direccion'];
-        $Telefono = $result['Telefono'];
+        $id_cita = $result['ID_CITA'];
+        $Titulo = $result['Titulo'];
+        $Notas = $result['Notas'];
+        $Mensaje = $result['Mensaje'];
+        $Fecha_Cita = $result['Fecha_Cita'];
+        $Hora_Cita = $result['Hora_Cita'];
+        $Costo = $result['ID_Paciente'];
 
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
     <h2>Editar Detalles del medico</h2>
-    <a href='Doctores_CRUD.php' class='close'>&times;</a>
+    <a href='Citas.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
-    <form action='../../PHP/DOCTOR/confirm_edit.php' method='post'>
-    <label>Nombre:</label>
-    <input type='text' name='nombre_medico' id='nombre_medico ' value='" . $Nombre . "'>
+    <form action='../../PHP/Citas/confirm_edit.php' method='post'>
+    <label>Titulo de la cita</label>
+    <input type='text' name='titulo_cita' id='titulo_cita ' value='" . $Titulo . "'>
     <input type='hidden' name='id' value='" . $id . "'>
     <br>
-    <label for='apellido'>Apellido:</label>
-    <input type='text' name='ape_medico' id='ape_medico' value='" . $Apellido . "'>
+    <label>Notas de la cita:</label>
+    <input type='text' name='notas_cita' value='" . $Notas . "'>
     <br>
-    <label for='Cedula'>Cedula:</label>
-    <input type='text' name='cedula_medico' id='cedula_medico' value='" . $Cedula . "'>
+    <label>Mensaje adicional de la cita:</label>
+    <input type='text' name='mensaje_cita' value='" . $Mensaje . "'>
     <br>
-    <label for='Genero'>Genero:</label>
-    <input type='text' name='genero_medico' id='genero_medico' value='" . $Genero . "'>
+    <label>Fecha de la cita:</label>
+    <input type='text' name='fecha_cita' value='" . $Fecha_cita . "'>
     <br>
-    <label for='Fecha_Nacimiento'>Fecha de Nacimiento:</label>
-    <input type='text' name='fecha_medico' id='fecha_medico' value='" . $Fecha_Nac . "'>
+    <label>Hora de la cita:</label>
+    <input type='text' name='hora_cita' value='" . $Hora_Cita . "'>
     <br>
-    <label for='Direccion'>Direccion</label>
-    <input type='text' name='dire_medico' id='dire_medico' value='" . $Direccion . "'>
+    <label for='Direccion'>Costo de la cita</label>
+    <input type='text' name='costo_cita' value='" . $Costo . "'>
     <br>
-<label for='Telefono'>Telefono</label>
-    <input type='text' name='tele_medico' id='tele_medico' value='" . $Telefono . "'>
 <br>
 <input type='submit' value='Aplicar Cambios' onclick='return confirm('¿Estas seguro de Actualizar este campo?');'>
 </form>
@@ -254,7 +252,7 @@ if ($_GET) {
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
         <h2>Eliminar Registro de Médico</h2>
-        <a href='Doctores_CRUD.php' class='close'>&times;</a>
+        <a href='Citas.php' class='close'>&times;</a>
             <div class='content'>
                 <div class='container'>
                     <form action='DOCTOR/confirm_delete.php' method='post'>
@@ -272,7 +270,7 @@ if ($_GET) {
         echo   "<div class='overlay' id='divOne'>
     <div class='wrapper'>
     <h2>Insertar datos medico</h2>
-    <a href='AAAAAAAAAAAAAA.php' class='close'>&times;</a>
+    <a href='Citas.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
     <form action='../../PHP/DOCTOR/Nuevo_doctor.php' method='post'>
