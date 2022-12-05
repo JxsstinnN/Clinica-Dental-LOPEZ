@@ -14,8 +14,10 @@ if($_POST)
     $edit_medic=$con->prepare("UPDATE medico set Nombre_Medico='$Nombre',Apellido_Medico='$Apellido',Cedula='$Cedula',Genero='$Genero',Fecha_Nacimiento='$Fecha_Nac',Direccion='$Direccion',Telefono='$Telefono' where ID_Medico ='$id'");
     if($edit_medic->execute())
     {
-        echo "<h2>Se ha editado exitosamente</h2>";
-        header('../../Paginas/Administrativo/Doctores_CRUD.php');
+        echo "<script>
+    alert('Se ha editado correctamente.');
+    window.location.href ='../../Paginas/Administrativo/Doctores_CRUD.php';
+    </script>";
     }
 
 }
