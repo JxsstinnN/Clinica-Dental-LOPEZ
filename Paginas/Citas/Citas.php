@@ -117,8 +117,8 @@ $query_citas->execute();
                     <td> <?php echo $inf['Titulo']; ?></td>
                     <td> <?php echo $inf['Fecha_Cita']; ?></td>
                     <td> <?php echo $inf['Hora_Cita']; ?></td>
-                    <td> <?php echo $inf['ID_Paciente']; ?></td> <!-- Nombre de paciente -->
-                    <td> <?php echo $inf['Nombre']; ?></td> <!-- Nombre del doctor -->
+                    <td> <?php echo $inf['Nombre_Paciente']; ?></td> <!-- Nombre de paciente -->
+                    <td> <?php echo $inf['Nombre_Medico']; ?></td> <!-- Nombre del doctor -->
                     <td> <?php echo $inf['Costo']; ?></td>
                     <td>
                         <a href="?action=view&id=<?php echo $inf['ID_CITA'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
