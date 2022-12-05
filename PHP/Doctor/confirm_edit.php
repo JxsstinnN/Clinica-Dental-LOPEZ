@@ -11,7 +11,7 @@ if($_POST)
     $Fecha_Nac = $_POST['fecha_medico'];
     $Direccion = $_POST['dire_medico'];
     $Telefono = $_POST['tele_medico'];
-    $edit_medic=$con->prepare("UPDATE medico set Nombre='$Nombre',Apellido='$Apellido',Cedula='$Cedula',Genero='$Genero',Fecha_Nacimiento='$Fecha_Nac',Direccion='$Direccion',Telefono='$Telefono' where ID_Medico ='$id'");
+    $edit_medic=$con->prepare("UPDATE medico set Nombre_Medico='$Nombre',Apellido_Medico='$Apellido',Cedula='$Cedula',Genero='$Genero',Fecha_Nacimiento='$Fecha_Nac',Direccion='$Direccion',Telefono='$Telefono' where ID_Medico ='$id'");
     if($edit_medic->execute())
     {
         echo "<h2>Se ha editado exitosamente</h2>";
