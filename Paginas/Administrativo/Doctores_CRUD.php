@@ -161,8 +161,8 @@ if ($_GET) {
         $query = $con->prepare("SELECT * FROM medico WHERE ID_MEDICO ='$id'");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
-        $Nombre = $result['Nombre'];
-        $Apellido = $result['Apellido'];
+        $Nombre = $result['Nombre_Medico'];
+        $Apellido = $result['Apellido_Medico'];
         $Cedula = $result['Cedula'];
         $Genero = $result['Genero'];
         $Fecha_Nac = $result['Fecha_Nacimiento'];
@@ -216,8 +216,8 @@ if ($_GET) {
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
         $id_medic = $result['ID_Medico'];
-        $Nombre = $result['Nombre'];
-        $Apellido = $result['Apellido'];
+        $Nombre = $result['Nombre_Medico'];
+        $Apellido = $result['Apellido_Medico'];
         $Cedula = $result['Cedula'];
         $Genero = $result['Genero'];
         $Fecha_Nac = $result['Fecha_Nacimiento'];

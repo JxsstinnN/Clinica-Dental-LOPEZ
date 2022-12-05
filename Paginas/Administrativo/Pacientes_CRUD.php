@@ -160,8 +160,8 @@ if ($_GET) {
         $query = $con->prepare("SELECT * FROM pacientes WHERE ID_Paciente ='$id'");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
-        $Nombre = $result['Nombre'];
-        $Apellido = $result['Apellido'];
+        $Nombre = $result['Nombre_Paciente'];
+        $Apellido = $result['Apellido_Paciente'];
         $Cedula = $result['Cedula'];
         $Genero = $result['Genero'];
         $Fecha_Nac = $result['Fecha_Nac'];
@@ -215,8 +215,8 @@ if ($_GET) {
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
         $id_Paciente = $result['ID_Paciente'];
-        $Nombre = $result['Nombre'];
-        $Apellido = $result['Apellido'];
+        $Nombre = $result['Nombre_Paciente'];
+        $Apellido = $result['Apellido_Paciente'];
         $Cedula = $result['Cedula'];
         $Genero = $result['Genero'];
         $Alergias = $result['Alergias'];
@@ -227,7 +227,7 @@ if ($_GET) {
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
     <h2>Editar Detalles del medico</h2>
-    <a href='pruebalista_pacientes.php' class='close'>&times;</a>
+    <a href='Pacientes_CRUD.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
     <form action='../../PHP/Paciente/confirm_edit.php' method='post'>
@@ -276,7 +276,7 @@ if ($_GET) {
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
         <h2>Eliminar Registro de Médico</h2>
-        <a href='pruebalista_pacientes.php' class='close'>&times;</a>
+        <a href='Pacientes_CRUD.php' class='close'>&times;</a>
             <div class='content'>
                 <div class='container'>
                     <form action='../../PHP/Paciente/confirm_delete.php' method='post'>
