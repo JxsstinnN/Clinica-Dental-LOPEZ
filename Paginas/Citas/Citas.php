@@ -47,14 +47,14 @@ $query_citas->execute();
 
         <div class="options__menu">
 
-            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/Pag_usuario.php">
+            <a href="../Administrativo/Pag_usuario.php">
                 <div class="option">
                     <i class="fas fa-home" title="Inicio"></i>
                     <h4>Inicio</h4>
                 </div>
             </a>
 
-            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/pruebalista.php">
+            <a href="../Administrativo/Doctores_CRUD.php">
                 <div class="option">
                     <i class="fa-solid fa-user-doctor" title="Doctores"></i>
                     <h4>Doctores</h4>
@@ -96,7 +96,7 @@ $query_citas->execute();
         <!-- Script para buscar por nombres-->
         <script src="../../JS/sort.js"></script>
 
-        <h1>Medicos</h1>
+        <h1>Citas</h1>
 
         <table class="table align-middle mb-0 bg-white" id="miTabla">
             <tr class="table-heading" id="Table-header">

@@ -3,7 +3,7 @@ if($_POST)
 {
     require_once "../../Clases/config.php";
     $id = $_POST['id'];
-    $delete_doc=$con->prepare("DELETE from medico where ID_medico ='$id'");
+    $delete_doc=$con->prepare("DELETE from citas where ID_CITA ='$id'");
     if($delete_doc->execute())
     {
         echo "<h2>Se ha editado exitosamente</h2>";
