@@ -15,7 +15,7 @@ if($_POST)
     if($edit_medic->execute())
     {
         echo "<h2>Se ha editado exitosamente</h2>";
-        header('Location:http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/pruebalista.php');
+        header('../../Paginas/Administrativo/Doctores_CRUD.php');
     }
 
 }

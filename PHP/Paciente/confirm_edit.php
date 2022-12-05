@@ -14,8 +14,10 @@ if($_POST)
     $edit_patient=$con->prepare("UPDATE pacientes set Nombre_Paciente='$Nombre',Apellido_Paciente='$Apellido',Cedula='$Cedula',Genero='$Genero',Fecha_Nac='$Fecha_Nac',Direccion='$Direccion',Telefono='$Telefono' where ID_Paciente ='$id'");
     if($edit_patient->execute())
     {
-        echo "<h2>Se ha editado exitosamente</h2>";
-        header('Location:http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/pruebalista_pacientes.php');
+    echo "<script>
+    alert('Usted ha cerrado sesion');
+    window.location.href ='../../Paginas/Administrativo/Pacientes_CRUD.php';
+    </script>";
     }
 
 }
