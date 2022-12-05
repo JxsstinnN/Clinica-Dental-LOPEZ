@@ -47,7 +47,7 @@ $query_medic->execute();
 
         <div class="options__menu">
 
-            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/Pag_usuario.php">
+            <a href="Pag_usuario.php">
                 <div class="option">
                     <i class="fas fa-home" title="Inicio"></i>
                     <h4>Inicio</h4>

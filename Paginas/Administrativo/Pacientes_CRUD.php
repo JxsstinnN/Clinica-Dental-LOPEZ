@@ -112,8 +112,8 @@ $query_medic->execute();
                 <tr id="info_tabla">
                     <td scope="row"> <?php echo $inf['ID_Paciente']; ?></td>
                     <td> <?php echo $inf['Cedula']; ?></td>
-                    <td> <?php echo $inf['Nombre_Medico']; ?></td>
-                    <td> <?php echo $inf['Apellido_Medico']; ?></td>
+                    <td> <?php echo $inf['Nombre_Paciente']; ?></td>
+                    <td> <?php echo $inf['Apellido_Paciente']; ?></td>
                     <td> <?php echo $inf['Genero']; ?></td>
                     <td> <?php echo $inf['Fecha_Nac']; ?></td>
                     <td> <?php echo $inf['Direccion']; ?></td>
