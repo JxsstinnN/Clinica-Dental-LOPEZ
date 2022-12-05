@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-11-2022 a las 16:40:14
+-- Tiempo de generación: 05-12-2022 a las 17:21:14
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.13
 
@@ -69,8 +69,8 @@ CREATE TABLE `especialidad` (
 
 CREATE TABLE `medico` (
   `ID_Medico` int(3) NOT NULL,
-  `Nombre` varchar(30) NOT NULL,
-  `Apellido` varchar(30) NOT NULL,
+  `Nombre_Medico` varchar(30) NOT NULL,
+  `Apellido_Medico` varchar(30) NOT NULL,
   `Cedula` varchar(13) NOT NULL,
   `Genero` varchar(10) NOT NULL,
   `Fecha_Nacimiento` date NOT NULL,
@@ -83,8 +83,8 @@ CREATE TABLE `medico` (
 -- Volcado de datos para la tabla `medico`
 --
 
-INSERT INTO `medico` (`ID_Medico`, `Nombre`, `Apellido`, `Cedula`, `Genero`, `Fecha_Nacimiento`, `Direccion`, `Telefono`, `Creado_A`) VALUES
-(1, 'caco e ñema', 'Pablo', '402-0985688-5', 'F', '2022-08-11', 'lo santo', '809-666-6666', '2022-11-15 12:53:20'),
+INSERT INTO `medico` (`ID_Medico`, `Nombre_Medico`, `Apellido_Medico`, `Cedula`, `Genero`, `Fecha_Nacimiento`, `Direccion`, `Telefono`, `Creado_A`) VALUES
+(1, 'Armando ÑEMA', 'Pablo', '402-0985688-5', 'F', '2022-08-11', 'lo santo', '809-666-6666', '2022-11-15 12:53:20'),
 (2, 'MANUEL', 'ALCANTARA', '402-0985688-5', 'F', '2003-08-04', 'MIRAFLORES', '809-219-6139', '2022-11-15 13:28:52'),
 (3, 'MANUEL', 'ALCANTARA', '402-0985688-5', 'F', '2003-08-04', 'MIRAFLORES', '809-219-6139', '2022-11-15 14:08:25'),
 (4, 'MANUEL', 'ALCANTARA', '402-0985688-5', 'F', '2003-08-04', 'MIRAFLORES', '809-219-6139', '2022-11-16 12:41:24');
@@ -98,8 +98,8 @@ INSERT INTO `medico` (`ID_Medico`, `Nombre`, `Apellido`, `Cedula`, `Genero`, `Fe
 CREATE TABLE `pacientes` (
   `ID_Paciente` int(3) NOT NULL,
   `Cedula` varchar(15) NOT NULL,
-  `Nombre` varchar(30) NOT NULL,
-  `Apellido` varchar(30) NOT NULL,
+  `Nombre_Paciente` varchar(30) NOT NULL,
+  `Apellido_Paciente` varchar(30) NOT NULL,
   `Genero` varchar(1) NOT NULL,
   `Fecha_Nac` date NOT NULL,
   `Direccion` varchar(150) NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE `pacientes` (
 -- Volcado de datos para la tabla `pacientes`
 --
 
-INSERT INTO `pacientes` (`ID_Paciente`, `Cedula`, `Nombre`, `Apellido`, `Genero`, `Fecha_Nac`, `Direccion`, `Telefono`, `Alergias`, `Creado_En`) VALUES
+INSERT INTO `pacientes` (`ID_Paciente`, `Cedula`, `Nombre_Paciente`, `Apellido_Paciente`, `Genero`, `Fecha_Nac`, `Direccion`, `Telefono`, `Alergias`, `Creado_En`) VALUES
 (1, '031-2492146-8', 'Crin', 'Lowman', 'F', '2022-08-14', 'Oslo', '809-566-5187', 'Paracetamol', '2022-11-28 12:58:43'),
 (2, '031-8802847-4', 'Hollis', 'Ashingden', 'M', '2022-02-17', 'Plaisir', '809-400-1567', 'Atorvastatina', '2022-11-28 12:58:43'),
 (3, '031-6368664-2', 'Milena', 'Klimke', 'F', '2022-01-10', '‘?r?f', '809-437-3054', 'Atorvastatina', '2022-11-28 12:58:43'),
@@ -504,7 +504,7 @@ INSERT INTO `pacientes` (`ID_Paciente`, `Cedula`, `Nombre`, `Apellido`, `Genero`
 (389, '031-0090182-1', 'Wynn', 'Cocher', 'F', '2022-04-07', 'Cam Lâm', '809-877-1190', 'Paracetamol', '2022-11-28 12:59:07'),
 (390, '031-3658062-1', 'Hubert', 'Cypler', 'M', '2022-02-02', 'Los Charrúas', '809-505-8160', 'Lexotiroxina sódica', '2022-11-28 12:59:07'),
 (391, '031-3739793-0', 'Spence', 'Marrill', 'M', '2022-08-05', 'Parychy', '809-760-2896', 'Atorvastatina', '2022-11-28 12:59:07');
-INSERT INTO `pacientes` (`ID_Paciente`, `Cedula`, `Nombre`, `Apellido`, `Genero`, `Fecha_Nac`, `Direccion`, `Telefono`, `Alergias`, `Creado_En`) VALUES
+INSERT INTO `pacientes` (`ID_Paciente`, `Cedula`, `Nombre_Paciente`, `Apellido_Paciente`, `Genero`, `Fecha_Nac`, `Direccion`, `Telefono`, `Alergias`, `Creado_En`) VALUES
 (392, '031-9684391-6', 'Jeanelle', 'Chatres', 'F', '2021-11-28', 'Tierp', '809-776-9562', 'Ramipril', '2022-11-28 12:59:07'),
 (393, '031-0060993-4', 'Karalee', 'Launchbury', 'F', '2022-09-20', 'São Roque', '809-654-6472', '', '2022-11-28 12:59:07'),
 (394, '031-5231816-0', 'Monika', 'Farlambe', 'F', '2022-10-31', 'Shazhou', '809-066-1750', 'Omeprazol', '2022-11-28 12:59:07'),
@@ -895,7 +895,7 @@ INSERT INTO `pacientes` (`ID_Paciente`, `Cedula`, `Nombre`, `Apellido`, `Genero`
 (779, '031-4408899-8', 'Von', 'Paine', 'M', '2022-04-25', 'Ágios Vasíleios', '809-297-3294', 'Salbutamol', '2022-11-28 12:59:33'),
 (780, '031-4800474-1', 'Jamey', 'Courcey', 'M', '2022-03-22', 'Vila do Maio', '809-946-9734', 'Lansoprazol', '2022-11-28 12:59:33'),
 (781, '031-9452435-1', 'Mina', 'Peggs', 'F', '2022-04-08', 'Ülken', '809-938-2595', 'Salbutamol', '2022-11-28 12:59:33');
-INSERT INTO `pacientes` (`ID_Paciente`, `Cedula`, `Nombre`, `Apellido`, `Genero`, `Fecha_Nac`, `Direccion`, `Telefono`, `Alergias`, `Creado_En`) VALUES
+INSERT INTO `pacientes` (`ID_Paciente`, `Cedula`, `Nombre_Paciente`, `Apellido_Paciente`, `Genero`, `Fecha_Nac`, `Direccion`, `Telefono`, `Alergias`, `Creado_En`) VALUES
 (782, '031-2805335-0', 'Ainsley', 'Jesper', 'F', '2022-05-20', 'Kinango', '809-040-8547', 'Amlodipina', '2022-11-28 12:59:33'),
 (783, '031-0703232-9', 'Harli', 'Clemintoni', 'F', '2022-08-23', 'Cisownica', '809-569-0405', 'Lansoprazol', '2022-11-28 12:59:34'),
 (784, '031-2062969-6', 'Andrew', 'Van Baaren', 'M', '2021-11-25', 'Tiantai Chengguanzhen', '809-369-7305', '', '2022-11-28 12:59:34'),
