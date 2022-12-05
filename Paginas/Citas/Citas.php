@@ -2,7 +2,7 @@
 require_once "../../Clases/config.php";
 
 //Consultar Información Adicional de la citas
-$query_citas = $con->prepare("SELECT * FROM CITAS");
+$query_citas = $con->prepare("select * from citas join medico on Citas.ID_CITA = medico.ID_Medico JOIN pacientes on pacientes.ID_Paciente = citas.ID_Paciente");
 $query_citas->execute();
 
 ?>
@@ -117,8 +117,8 @@ $query_citas->execute();
                     <td> <?php echo $inf['Titulo']; ?></td>
                     <td> <?php echo $inf['Fecha_Cita']; ?></td>
                     <td> <?php echo $inf['Hora_Cita']; ?></td>
-                    <td> <?php echo $inf['ID_Paciente']; ?></td>
-                    <td> <?php echo $inf['ID_Medico']; ?></td>
+                    <td> <?php echo $inf['ID_Paciente']; ?></td> <!-- Nombre de paciente -->
+                    <td> <?php echo $inf['Nombre']; ?></td> <!-- Nombre del doctor -->
                     <td> <?php echo $inf['Costo']; ?></td>
                     <td>
                         <a href="?action=view&id=<?php echo $inf['ID_CITA'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
