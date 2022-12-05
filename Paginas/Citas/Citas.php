@@ -232,7 +232,7 @@ if ($_GET) {
     <input type='text' name='mensaje_cita' value='" . $Mensaje . "'>
     <br>
     <label>Fecha de la cita:</label>
-    <input type='text' name='fecha_cita' value='" . $Fecha_cita . "'>
+    <input type='text' name='fecha_cita' value='" . $Fecha_Cita . "'>
     <br>
     <label>Hora de la cita:</label>
     <input type='text' name='hora_cita' value='" . $Hora_Cita . "'>
