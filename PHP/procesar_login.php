@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $_SESSION['user_id']=$user_id;
             $_SESSION['nombre']=$nombre_user;
             $_SESSION['tipo_usuario']=$tipo_usuario;
-            $array_devolver['redirect'] = "http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/Pag_usuario.php";
+            $array_devolver['redirect'] = "../Paginas/Administrativo/Pag_usuario.php";
         }
     
     else

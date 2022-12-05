@@ -74,7 +74,7 @@ session_start();
                 </div>
             </a>
 
-            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Citas/Citas.php">
+            <a href="../Citas/Citas.php">
                 <div class="option">
                     <i class="fa-solid fa-calendar-check"></i>
                     <h4>Citas</h4>
