@@ -8,6 +8,9 @@ $querypaciente->execute();
 
 $citas_proximas = $con->prepare("select Fecha_Cita from citas where Fecha_Cita > CURRENT_DATE");
 $citas_proximas->execute();
+
+$citas_hoy =$con->prepare("Select * from citas where Fecha_Cita = CURRENT_DATE");
+$citas_hoy->execute();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -121,8 +124,8 @@ $citas_proximas->execute();
                 <div class="card">
         <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
         <div class="container">
-            <h4><b>Nuevas Reservas</b></h4>
-            <p></p>
+            <h4><b>Sesiones Hoy</b></h4>
+            <p style="font-size:20px"><?php echo $citas_hoy->rowCount();?></p>
         </div>
         </div>
 

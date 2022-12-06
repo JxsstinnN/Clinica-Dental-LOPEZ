@@ -13,6 +13,7 @@
 </head>
 
 <body class="text-center">
+  <a href='../index.html' class='closebtn' style="padding-top:-200px">&times;</a>
   <form class="form-signin" id="form_login" method="POST">
     <img class="mb-4" src="../IMGS/LOGOS/Logo_Principal.png" alt="" width="200" height="200">
     <h1 class="h3 mb-3 font-weight-normal">Iniciar Sesión</h1>
