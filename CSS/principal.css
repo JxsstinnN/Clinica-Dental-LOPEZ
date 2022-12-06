@@ -395,3 +395,16 @@ a:hover {
     font-size: var(--p-font-size);
     font-weight: var(--font-weight-light);
   }
+
+  /* LISTAS */ 
+
+  .custom-list {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  
+  .custom-list-item {
+    list-style: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
