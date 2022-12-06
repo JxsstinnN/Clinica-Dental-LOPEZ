@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2022 a las 17:21:14
+-- Tiempo de generación: 06-12-2022 a las 15:28:38
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.13
 
@@ -47,8 +47,9 @@ CREATE TABLE `citas` (
 
 INSERT INTO `citas` (`ID_CITA`, `Titulo`, `Notas`, `Mensaje`, `Fecha_Cita`, `Hora_Cita`, `ID_Paciente`, `ID_Medico`, `User_ID`, `Costo`) VALUES
 (1, 'Endoconcia', 'El paciente es un aqueroso', 'Opa opa ', '2022-12-08', '08:10:07', 63, 3, 7, '1500'),
-(2, 'Endodoncia', 'El e un lambonazo', 'U thought i was feeling u', '2022-12-03', '11:38:00', 1, 1, 8, '2500'),
-(3, 'Endodoncia', 'El e un lambonazo', 'U thought i was feeling u', '2022-12-03', '11:38:00', 475, 3, 8, '2500');
+(4, 'Limpieza Dental', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2022-12-30', '15:34:00', 1, 3, 9, '9000'),
+(5, '3 caries a remover', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2022-12-30', '15:34:00', 1, 3, 9, '9000'),
+(6, 'Limpieza Dental', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2023-01-05', '14:41:00', 6, 2, 9, '1600');
 
 -- --------------------------------------------------------
 
@@ -84,10 +85,8 @@ CREATE TABLE `medico` (
 --
 
 INSERT INTO `medico` (`ID_Medico`, `Nombre_Medico`, `Apellido_Medico`, `Cedula`, `Genero`, `Fecha_Nacimiento`, `Direccion`, `Telefono`, `Creado_A`) VALUES
-(1, 'Armando ÑEMA', 'Pablo', '402-0985688-5', 'F', '2022-08-11', 'lo santo', '809-666-6666', '2022-11-15 12:53:20'),
 (2, 'MANUEL', 'ALCANTARA', '402-0985688-5', 'F', '2003-08-04', 'MIRAFLORES', '809-219-6139', '2022-11-15 13:28:52'),
-(3, 'MANUEL', 'ALCANTARA', '402-0985688-5', 'F', '2003-08-04', 'MIRAFLORES', '809-219-6139', '2022-11-15 14:08:25'),
-(4, 'MANUEL', 'ALCANTARA', '402-0985688-5', 'F', '2003-08-04', 'MIRAFLORES', '809-219-6139', '2022-11-16 12:41:24');
+(3, 'MANUEL', 'ALCANTARA', '402-0985688-5', 'F', '2003-08-04', 'MIRAFLORES', '809-219-6139', '2022-11-15 14:08:25');
 
 -- --------------------------------------------------------
 
@@ -1138,7 +1137,9 @@ INSERT INTO `usuario` (`User_ID`, `Nombre_usuario`, `password`, `Fecha_Creado`, 
 (2, 'inoa', '$2y$10$SUVj7kx/HJFhy462eyr2X.L5b55iiF.5/5.BdluE67mzvrqtny5n6', '2022-11-10 15:03:45', 'Secretaria'),
 (6, 'armando', '$2y$10$XAQ7RaXMunBnU2.YbAr.suQKADbHMRqYSaOtxVEdiXEcDzSJNiw02', '2022-11-15 13:36:44', 'secre'),
 (7, 'JUSTIN', '$2y$10$jmHW/u/EVkHs.7rcNLXWZ.vAaEQjGLeQboXEutGI/haX2wvxnYVta', '2022-11-15 13:38:41', 'DOC'),
-(8, 'JUSTIN1', '$2y$10$TIhPkZlWjIqQEhtYmSGOjer269mZLm.ZMohtr6TOQbkBbENjht/uW', '2022-11-29 15:23:43', 'SECRE');
+(8, 'JUSTIN1', '$2y$10$TIhPkZlWjIqQEhtYmSGOjer269mZLm.ZMohtr6TOQbkBbENjht/uW', '2022-11-29 15:23:43', 'SECRE'),
+(9, 'PAOLA', '$2y$10$pByAcbe49NtfHUDCawho8uOq6H6Ho8X.BjMgK53wixKcHKwQnL8CO', '2022-12-06 13:33:55', 'SECRE'),
+(10, 'CRITIAN', '$2y$10$LmyXnMQmZLMbVgyW.MGTOe74FdCG1QFiJ24QI9V6aMqR28w0d9Pea', '2022-12-06 13:34:28', 'SECRE');
 
 --
 -- Índices para tablas volcadas
@@ -1185,7 +1186,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `ID_CITA` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_CITA` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `especialidad`
@@ -1209,7 +1210,7 @@ ALTER TABLE `pacientes`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `User_ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `User_ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
