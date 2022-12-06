@@ -1,7 +1,12 @@
 <?php
 session_start();
+require_once "../../Clases/config.php";
 require_once '../../Clases/sesion.php';
 
+$querypaciente = $con->prepare("SELECT * FROM PACIENTES ");
+$querypaciente->execute();
+
+$citas_proximas = $con->prepare("SELECT * FROM")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,8 +104,8 @@ require_once '../../Clases/sesion.php';
         <div class="card">
         <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
         <div class="container">
-            <h4><b>Citas Próximas</b></h4>
-            <p></p>
+            <h4><b>Citas Próximas Generales</b></h4>
+            <p><?php  ?></p>
         </div>
         </div>
 
@@ -108,7 +113,7 @@ require_once '../../Clases/sesion.php';
         <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
         <div class="container">
             <h4><b>Pacientes</b></h4>
-            <p></p>
+            <p style="font-size:20px"><?php echo $querypaciente->rowCount(); ?></p>
         </div>
         </div>
 
@@ -123,7 +128,7 @@ require_once '../../Clases/sesion.php';
                 <div class="card">
         <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
         <div class="container">
-            <h4><b>Citas Próximas</b></h4>
+            <h4><b>Sus citas Proximas</b></h4>
             <p></p>
         </div>
         </div>
