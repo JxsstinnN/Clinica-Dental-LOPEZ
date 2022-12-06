@@ -429,3 +429,73 @@ a:hover {
     font-weight: var(--font-weight-bold);
     line-height: normal;
   }
+
+
+/* Footel */ 
+
+/*---------------------------------------
+  SITE FOOTER              
+-----------------------------------------*/
+.site-footer {
+    background-color: var(--site-footer-bg-color);
+    padding-top: 70px;
+  }
+  
+  .site-footer-bottom {
+    background-color: var(--secondary-color);
+    position: relative;
+    z-index: 2;
+    margin-top: 70px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  
+  .site-footer-bottom a {
+      color: var(--white-color);
+  }
+  
+  .site-footer-bottom a:hover {
+      color: #FF6;
+  }
+  
+  .site-footer-link {
+    color: var(--white-color);
+  }
+  
+  .copyright-text {
+    color: var(--section-bg-color);
+    font-size: var(--copyright-font-size);
+    margin-right: 30px;
+  }
+  
+  .site-footer .custom-btn {
+    font-size: var(--copyright-font-size);
+  }
+  
+  .site-footer .custom-btn:hover {
+    background: var(--primary-color);
+  }
+  
+  
+  /*---------------------------------------
+    FOOTER MENU               
+  -----------------------------------------*/
+  .footer-menu {
+    column-count: 2;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer-menu-item {
+    list-style: none;
+    display: block;
+  }
+  
+  .footer-menu-link {
+    font-size: var(--p-font-size);
+    color: var(--white-color);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-bottom: 5px;
+  }
