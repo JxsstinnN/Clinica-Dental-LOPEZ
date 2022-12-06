@@ -1,0 +1,71 @@
+:root {
+    --white-color:                  #ffffff;
+    --primary-color:                #5bc1ac;
+    --body-font-family:             'Metropolis', sans-serif;
+
+  }
+  
+body {
+    background-color: var(--white-color);
+    font-family: var(--body-font-family); 
+  }
+  
+/* HEADER DEL SITIO*/
+  .site-header {
+    background: var(--primary-color);
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+  
+  .site-header p,
+  .site-header p a,
+  .site-header .social-icon-link {
+    color: var(--white-color);
+    font-size: 16px;
+  }
+  
+  .site-header .social-icon {
+    text-align: right;
+  }
+  
+  .site-header .social-icon-link {
+    background: transparent;
+    width: inherit;
+    height: inherit;
+    line-height: inherit;
+    margin-right: 15px;
+  }
+  
+/* ICONOS DE ARRIBA*/
+  .social-icon {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .social-icon-item {
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .social-icon-link {
+    background: var(--site-footer-bg-color);
+    border-radius: var(--border-radius-large);
+    color: var(--white-color);
+    font-size: var(--copyright-font-size);
+    display: block;
+    margin-right: 5px;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    line-height: 38px;
+  }
+  
+  .social-icon-link:hover {
+    background: var(--primary-color);
+    color: var(--white-color);
+  }
+
+
+/* MENÚ HORIZONTAL */
+
