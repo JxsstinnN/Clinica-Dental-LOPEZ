@@ -355,3 +355,33 @@ a:hover {
     transition: all 0.5s;
   }
   
+
+/* IMAGEN DE nuestra historia*/
+
+.custom-text-box {
+    background: var(--white-color);
+    border-radius: var(--border-radius-medium);
+    margin-bottom: 24px;
+    padding: 40px;
+  }
+  
+  .custom-text-box-image {
+    border-radius: var(--border-radius-medium);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .custom-text-box-icon {
+    background: var(--section-bg-color);
+    border-radius: var(--border-radius-large);
+    color: var(--secondary-color);
+    font-size: var(--h6-font-size);
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    line-height: 30px;
+  }
+  
