@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once '../../Clases/sesion.php';
+require_once '../../Clases/sesion.php';
 
 ?>
 <!DOCTYPE html>

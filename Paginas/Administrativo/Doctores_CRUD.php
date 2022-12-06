@@ -1,6 +1,7 @@
 <?php
+session_start();
 require_once "../../Clases/config.php";
-
+require_once '../../Clases/sesion.php';
 //Consultar Datos de los medicos
 $query_medic = $con->prepare("SELECT * FROM MEDICO");
 $query_medic->execute();
