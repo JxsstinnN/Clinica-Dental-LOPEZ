@@ -19,7 +19,7 @@
     <label for="inputUser" class="sr-only">Nombre de usuario</label>
     <input type="text" id="inputUser" name="usuario" class="form-control" placeholder="Usuario" required autofocus>
     <p>
-      <div></div>
+    <div></div>
     </p>
     <label for="inputPassword" class="sr-only">Contraseña</label>
     <input type="password" id="inputPassword" name="clave" class="form-control" placeholder="Contraseña" required>
@@ -31,6 +31,8 @@
   </form>
 
   <script src="../JS/login.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>
