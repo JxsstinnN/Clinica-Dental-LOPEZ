@@ -92,7 +92,7 @@ $query_citas->execute();
     <main>
         <input type="text" id="BuscarInput" onkeyup="Sort()" placeholder="Busqueda" title="Type in a name" size="20">
 
-        <button type="button" class="btn btn-primary" id="BtnAgregarDoc"><a href="?action=insert">Agregar nueva cita </a></button>
+        <button type="button" class="btn btn-primary" id="BtnAgregarDoc"><a href="Insertar_Citas.php">Agregar nueva cita </a></button>
         <!-- Script para buscar por nombres-->
         <script src="../../JS/sort.js"></script>
 
@@ -158,6 +158,7 @@ if ($_GET) {
     $id = $_GET['id'];
     $action = $_GET['action'];
 
+   
     if ($action == 'view') {
         $query = $con->prepare("SELECT * FROM citas WHERE ID_CITA ='$id'");
         $query->execute();
