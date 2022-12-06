@@ -85,7 +85,7 @@ $query_medic->execute();
                 </div>
             </a>
 
-            <a href="#">
+            <a href="../config/config.php">
                 <div class="option">
                     <i class='bx bx-cog' title="Contacto"></i>
                     <h4>Configuración</h4>
