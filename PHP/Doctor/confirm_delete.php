@@ -6,8 +6,10 @@ if($_POST)
     $delete_doc=$con->prepare("DELETE from medico where ID_medico ='$id'");
     if($delete_doc->execute())
     {
-        echo "<h2>Se ha editado exitosamente</h2>";
-        header('Location:http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/pruebalista.php');
+        echo "<script>
+    alert('Se ha editado correctamente.');
+    window.location.href ='../../Paginas/Administrativo/Doctores_CRUD.php';
+    </script>";
     }
     else
     {
