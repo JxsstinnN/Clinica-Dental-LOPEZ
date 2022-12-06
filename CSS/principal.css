@@ -139,7 +139,7 @@ a:hover {
   }
   
   .logo {
-    width: 80px;
+    width: 150px;
     height: auto;
   }
   
@@ -498,4 +498,40 @@ a:hover {
     vertical-align: middle;
     margin-right: 10px;
     margin-bottom: 5px;
+  }
+
+/* boton jevi */ 
+  .custom-btn {
+    background: var(--secondary-color);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius-large);
+    color: var(--white-color);
+    font-size: var(--btn-font-size);
+    font-weight: var(--font-weight-normal);
+    line-height: normal;
+    padding: 15px 25px;
+  }
+  
+  .navbar-expand-lg .navbar-nav .nav-link.custom-btn {
+    color: var(--custom-btn-bg-color);
+    margin-top: 8px;
+    padding: 12px 25px;
+  }
+  
+  .custom-btn:hover {
+    background: var(--primary-color);
+    color: var(--white-color);
+  }
+  
+  .custom-border-btn {
+    background: transparent;
+    border: 2px solid var(--custom-btn-bg-color);
+    color: var(--primary-color);
+  }
+  
+  .navbar-expand-lg .navbar-nav .nav-link.custom-btn:hover,
+  .custom-border-btn:hover {
+    background: var(--custom-btn-bg-hover-color);
+    border-color: transparent;
+    color: var(--white-color);
   }
