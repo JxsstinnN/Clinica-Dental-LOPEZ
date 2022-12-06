@@ -25,7 +25,7 @@ if ($_POST)
 }
 else
 {
-    exit("No funciona eta mielda");
+    exit("No se pudo ejecutar la sentencia");
 }
 
 
