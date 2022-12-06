@@ -6,7 +6,8 @@ require_once '../../Clases/sesion.php';
 $querypaciente = $con->prepare("SELECT * FROM PACIENTES ");
 $querypaciente->execute();
 
-$citas_proximas = $con->prepare("SELECT * FROM")
+$citas_proximas = $con->prepare("select Fecha_Cita from citas where Fecha_Cita > CURRENT_DATE");
+$citas_proximas->execute();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,7 +106,7 @@ $citas_proximas = $con->prepare("SELECT * FROM")
         <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
         <div class="container">
             <h4><b>Citas Próximas Generales</b></h4>
-            <p><?php  ?></p>
+            <p style="font-size:20px"><?php echo $citas_proximas->rowCount(); ?></p>
         </div>
         </div>
 
