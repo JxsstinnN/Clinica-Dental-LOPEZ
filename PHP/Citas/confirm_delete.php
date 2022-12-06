@@ -10,8 +10,10 @@ if($_POST)
     {
         $com1 = $con->prepare("SET foreign_key_checks = 1");
         $com1->execute();
-        echo "<h2>Se ha editado exitosamente</h2>";
-        header('Location:http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Citas/Citas.php');
+        echo "<script>
+    alert('Se ha Borrado Correctamente.');
+    window.location.href ='../../Paginas/Citas/Citas.php';
+    </script>";
     }
     else
     {

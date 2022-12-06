@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../../Clases/config.php";
 require_once  "../../Clases/sesion.php";
 //Consultar Información Adicional de la citas
@@ -174,7 +175,7 @@ if ($_GET) {
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
     <h2>Ver Detalles del medico</h2>
-    <a href='Citas.php.php' class='close'>&times;</a>
+    <a href='Citas.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
     <label>Titulo de la cita:</label>
@@ -256,7 +257,7 @@ if ($_GET) {
         <a href='Citas.php' class='close'>&times;</a>
             <div class='content'>
                 <div class='container'>
-                    <form action='DOCTOR/confirm_delete.php' method='post'>
+                    <form action='../../PHP/Citas/confirm_delete.php' method='post'>
                         <h4>¿Desea Borrar este registo?</h4>
                             <br>
                         <h4>Estará borrando el registro <br>" . $id . "</h4>
