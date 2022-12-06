@@ -15,6 +15,7 @@ require_once '../../Clases/sesion.php';
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../CSS/cards.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <!-- Fin de las Liberias-->
@@ -96,13 +97,36 @@ require_once '../../Clases/sesion.php';
     <main>
         <h1>Hola <?php echo $_SESSION['tipo_usuario'] . '&nbsp;' . $_SESSION['nombre']; ?></h1><br>
         <div class="card">
-        <img src="img_avatar.png" alt="Avatar" style="width:100%">
+        <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
         <div class="container">
-            <h4><b>John Doe</b></h4>
-            <p>Architect & Engineer</p>
+            <h4><b>Citas Próximas</b></h4>
+            <p></p>
         </div>
         </div>
 
+                <div class="card">
+        <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
+        <div class="container">
+            <h4><b>Pacientes</b></h4>
+            <p></p>
+        </div>
+        </div>
+
+                <div class="card">
+        <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
+        <div class="container">
+            <h4><b>Nuevas Reservas</b></h4>
+            <p></p>
+        </div>
+        </div>
+
+                <div class="card">
+        <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
+        <div class="container">
+            <h4><b>Citas Próximas</b></h4>
+            <p></p>
+        </div>
+        </div>
 
     </main>
 

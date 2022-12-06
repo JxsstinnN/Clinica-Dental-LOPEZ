@@ -26,7 +26,14 @@ $insertar_cita->bindParam(':Hora_Cita',$Hora_Cita,PDO::PARAM_STR);
 $insertar_cita->bindParam(':ID_Medico',$ID_Medico,PDO::PARAM_STR);
 $insertar_cita->bindParam(':User_ID',$User_ID,PDO::PARAM_STR);
 $insertar_cita->bindParam('costo_cita',$costo_cita,PDO::PARAM_STR);
-$insertar_cita->execute();
+if($insertar_cita->execute())
+{
+    echo "<script>
+    alert('Cita creada correctamente');
+    window.location.href ='../../Paginas/Citas/Citas.php';
+    </script>";
+}
+
 }
 else
 {

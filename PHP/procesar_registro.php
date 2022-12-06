@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
         $user_id = $con->lastInsertId();
         $_SESSION['user_id']= (int) $user_id;
-        $array_devolver['redirect']= '';
+        $array_devolver['redirect']= 'Login.php';
         $array_devolver['is_login']= true;
     }
     echo json_encode($array_devolver);
