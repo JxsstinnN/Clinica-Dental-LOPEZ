@@ -1,6 +1,6 @@
 <?php
 require_once "../../Clases/config.php";
-
+require_once  "../../Clases/sesion.php";
 //Consultar Información Adicional de la citas
 $query_citas = $con->prepare("select * from citas join medico on Citas.ID_CITA = medico.ID_Medico JOIN pacientes on pacientes.ID_Paciente = citas.ID_Paciente JOIN usuario on usuario.User_ID = citas.User_ID");
 $query_citas->execute();

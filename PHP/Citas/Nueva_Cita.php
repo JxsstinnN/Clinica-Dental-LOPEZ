@@ -32,7 +32,7 @@ else
 {
     echo "<script>
     alert('Necesita Ser secretario para poder crear citas..');
-    window.location.href ='../../Paginas/Administrativo/Citas/Citas.php';
+    window.location.href ='../../Paginas/Citas/Citas.php';
     </script>";
 }
 

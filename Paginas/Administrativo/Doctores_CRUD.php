@@ -130,7 +130,7 @@ $query_medic->execute();
                                 <font class="tn-in-text">Editar</font>
                             </button> </a>
                         &nbsp;&nbsp;&nbsp;
-                        <a href="?action=drop&id=<?php echo $inf['ID_Medico'] . '&name=' . $inf['Nombre_Medico'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
+                        <a href="?action=drop&id=<?php echo $inf['ID_Medico'] . '&name=' . $inf['Nombre_Medico']  ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
                                 <font class="tn-in-text">Remove</font>
                             </button></a>
                     </td>
@@ -275,7 +275,7 @@ if ($_GET) {
         <a href='Doctores_CRUD.php' class='close'>&times;</a>
             <div class='content'>
                 <div class='container'>
-                    <form action='DOCTOR/confirm_delete.php' method='post'>
+                    <form action='../../PHP/Doctor/confirm_delete.php' method='post'>
                         <h4>¿Desea Borrar este registo?</h4>
                             <br>
                         <h4>Estará borrando el registro <br>" . $id . "</h4>
