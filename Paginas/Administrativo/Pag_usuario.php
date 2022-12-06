@@ -1,9 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['nombre']))
-{
-    header('Location:../login.php');
-}
+include_once '../../Clases/sesion.php';
 
 ?>
 <!DOCTYPE html>
