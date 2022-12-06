@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-12-2022 a las 15:28:38
+-- Tiempo de generación: 06-12-2022 a las 16:23:06
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.13
 
@@ -1139,7 +1139,8 @@ INSERT INTO `usuario` (`User_ID`, `Nombre_usuario`, `password`, `Fecha_Creado`, 
 (7, 'JUSTIN', '$2y$10$jmHW/u/EVkHs.7rcNLXWZ.vAaEQjGLeQboXEutGI/haX2wvxnYVta', '2022-11-15 13:38:41', 'DOC'),
 (8, 'JUSTIN1', '$2y$10$TIhPkZlWjIqQEhtYmSGOjer269mZLm.ZMohtr6TOQbkBbENjht/uW', '2022-11-29 15:23:43', 'SECRE'),
 (9, 'PAOLA', '$2y$10$pByAcbe49NtfHUDCawho8uOq6H6Ho8X.BjMgK53wixKcHKwQnL8CO', '2022-12-06 13:33:55', 'SECRE'),
-(10, 'CRITIAN', '$2y$10$LmyXnMQmZLMbVgyW.MGTOe74FdCG1QFiJ24QI9V6aMqR28w0d9Pea', '2022-12-06 13:34:28', 'SECRE');
+(10, 'CRITIAN', '$2y$10$LmyXnMQmZLMbVgyW.MGTOe74FdCG1QFiJ24QI9V6aMqR28w0d9Pea', '2022-12-06 13:34:28', 'SECRE'),
+(11, 'MAMI', '$2y$10$aZSkT33NDcdZ79dOH7aDB.gEENYaxdezY71580/jPqIo16GnUQ.3q', '2022-12-06 15:07:42', 'ADMIN');
 
 --
 -- Índices para tablas volcadas
@@ -1210,7 +1211,7 @@ ALTER TABLE `pacientes`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `User_ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `User_ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
