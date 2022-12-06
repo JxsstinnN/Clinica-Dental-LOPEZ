@@ -85,12 +85,19 @@ $query_citas->execute();
                 </div>
             </a>
 
-            <a href="#">
-                <div class="option">
-                    <i class='bx bx-cog' title="Contacto"></i>
+ <?php 
+                if($_SESSION["tipo_usuario"]== "ADMIN")
+                {
+                echo "<a href='../config/config.php'>
+                <div class='option'>
+                    <i class='bx bx-cog' title='Contacto'></i>
                     <h4>Configuración</h4>
                 </div>
-            </a>
+            </a>";
+                }
+
+            
+            ?>
 
 
         </div>
@@ -140,11 +147,13 @@ $query_citas->execute();
                                 <font class="tn-in-text">Editar</font>
                             </button> </a>
                         &nbsp;&nbsp;&nbsp;
+                        <?php                         if($_SESSION["tipo_usuario"]== "ADMIN")
+                { ?>
                         <a href="?action=drop&id=<?php echo $inf['ID_CITA'] . '&name=' . $inf['ID_Paciente'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
                                 <font class="tn-in-text">Remove</font>
                             </button></a>
                     </td>
-
+                    <?php }?>
                 <?php
             }
                 ?>

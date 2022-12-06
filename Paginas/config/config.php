@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php session_start();
+require_once "../../Clases/config.php";
+require_once '../../Clases/sesion.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,15 +96,15 @@
 
     <main>
         <h1>Hola <?php echo $_SESSION['tipo_usuario'] . '&nbsp;' . $_SESSION['nombre']; ?></h1><br>
-
+<a href="../Registro.php">
         <div class="card">
         <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
         <div class="container">
             <h4><b>Crear Usuario</b></h4>
-            <a href="../Registro.php"></a>
+            
         </div>
         </div>
-
+</a>
 
 
     </main>
