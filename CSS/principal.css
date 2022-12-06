@@ -408,3 +408,24 @@ a:hover {
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
+/* lo que cuenta lo numero */
+
+.counter-thumb {
+    margin: 20px;
+    margin-bottom: 0;
+  }
+  
+  .counter-number,
+  .counter-text {
+    color: var(--secondary-color);
+    display: block;
+  }
+  
+  .counter-number,
+  .counter-number-text {
+    color: var(--primary-color);
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-weight-bold);
+    line-height: normal;
+  }
