@@ -128,7 +128,7 @@ $citas_proximas = $con->prepare("SELECT * FROM")
                 <div class="card">
         <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
         <div class="container">
-            <h4><b>Sus citas Proximas</b></h4>
+            <h4><b>Sus Citas Proximas</b></h4>
             <p></p>
         </div>
         </div>

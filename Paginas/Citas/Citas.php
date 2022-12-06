@@ -37,6 +37,15 @@ $query_citas->execute();
         <div id="current-date"> <span>Fecha Actual:</span>
             <div class="right-date" id="fecha">AAAAAAAAAAA</div>
         </div>
+
+                        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo $_SESSION['nombre']; ?>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="../../PHP/Sesion.php?sesion=cerrar">Cerrar sesion </a>
+            </div>
+        </div>
     </header>
 
     <div class="menu__side" id="menu_side">

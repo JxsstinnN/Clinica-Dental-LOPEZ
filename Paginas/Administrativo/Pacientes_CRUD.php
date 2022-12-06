@@ -33,6 +33,15 @@ $query_medic->execute();
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
+
+                <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo $_SESSION['nombre']; ?>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="../../PHP/Sesion.php?sesion=cerrar">Cerrar sesion </a>
+            </div>
+        </div>
     </header>
 
     <div class="menu__side" id="menu_side">
@@ -80,6 +89,8 @@ $query_medic->execute();
             </a>
 
 
+            
+
         </div>
 
     </div>
@@ -88,6 +99,9 @@ $query_medic->execute();
 
 
     <main>
+
+
+
         <!--Botones para hacer Querys y filtros -->
         <input type="text" id="BuscarInput" onkeyup="Sort()" placeholder="Busqueda" title="Type in a name" size="20">
 
