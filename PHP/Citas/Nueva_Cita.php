@@ -28,6 +28,13 @@ $insertar_cita->bindParam(':User_ID',$User_ID,PDO::PARAM_STR);
 $insertar_cita->bindParam('costo_cita',$costo_cita,PDO::PARAM_STR);
 $insertar_cita->execute();
 }
+else
+{
+    echo "<script>
+    alert('Necesita Ser secretario para poder crear citas..');
+    window.location.href ='../../Paginas/Administrativo/Citas/Citas.php';
+    </script>";
+}
 
 }
 ?>

@@ -43,7 +43,7 @@ $data1=$query_medico->fetchAll();
                             </tr>
                             
                             <tr>
-                                <form action='../../../PHP/Citas/Nueva_cita.php' method='POST' class='add-new-form' id='add_doc'>
+                                <form action='../../PHP/Citas/Nueva_Cita.php' method='POST' class='add-new-form' id='add_doc'>
                                 <td class='label-td' colspan='2'>
                                     <label for='name' class='form-label'>Nombres del paciente: </label>
                                 </td>
@@ -52,7 +52,7 @@ $data1=$query_medico->fetchAll();
                                 <td class='label-td' colspan='2'>
                                     <select name='Nombre_Paciente' id=''>
                                         <?php foreach ($data as $valores){ 
-                                        echo '<option value="'.$valores["ID_Paciente"].'">'.$valores["Nombre"]."&nbsp;".$valores["Apellido"].'</option>'; 
+                                        echo '<option value="'.$valores["ID_Paciente"].'">'.$valores["Nombre_Paciente"]."&nbsp;".$valores["Apellido_Paciente"].'</option>'; 
                                         } ?>
                                     </select><br>
                                 </td>
@@ -121,7 +121,7 @@ $data1=$query_medico->fetchAll();
                                 <td class='label-td' colspan='2'>
                                    <select name='ID_Medico' id=''>
                                         <?php foreach ($data1 as $valoresmed){ 
-                                        echo '<option value="'.$valoresmed["ID_Medico"].'">'.$valoresmed["Nombre"].'&nbsp;'. $valoresmed["Apellido"].'</option>'; 
+                                        echo '<option value="'.$valoresmed["ID_Medico"].'">'.$valoresmed["Nombre_Medico"].'&nbsp;'. $valoresmed["Apellido_Medico"].'</option>'; 
                                         } ?>
                                     </select><br>
                                 </td>
