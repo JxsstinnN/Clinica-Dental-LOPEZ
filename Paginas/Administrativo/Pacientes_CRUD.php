@@ -60,7 +60,7 @@ $query_medic->execute();
                 </div>
             </a>
 
-            <a href="http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/Doctores_CRUD.php">
+            <a href="Doctores_CRUD.php">
                 <div class="option">
                     <i class="far fa-file" title="Doctores"></i>
                     <h4>Doctores</h4>
