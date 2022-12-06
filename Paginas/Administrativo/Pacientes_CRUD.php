@@ -129,7 +129,7 @@ $query_medic->execute();
                                 <font class="tn-in-text">Ver</font>
                             </button></a>
                         &nbsp;&nbsp;&nbsp;
-                        <a href="?action=drop&id=<?php echo $inf['ID_Paciente'] . '&name=' . $inf['Nombre'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
+                        <a href="?action=drop&id=<?php echo $inf['ID_Paciente'] . '&name=' . $inf['Nombre_Paciente'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
                                 <font class="tn-in-text">Remove</font>
                             </button></a>
                     </td>

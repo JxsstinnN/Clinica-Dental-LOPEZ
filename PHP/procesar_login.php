@@ -11,7 +11,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $usuario = strtoupper($_POST['usuario']);
     $password = $_POST['password'];
     $buscar_user = $con->prepare("SELECT * FROM usuario WHERE Nombre_usuario = '$usuario' LIMIT 1");
-    $buscar_user->bindParam(':usuario',$usuario, PDO::PARAM_STR);
     $buscar_user->execute();
 
     if($buscar_user->rowCount() ==1)

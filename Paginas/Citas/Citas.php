@@ -61,7 +61,7 @@ $query_citas->execute();
                 </div>
             </a>
 
-            <a href="../Pacientes_CRUD.php">
+            <a href="../Administrativo/Pacientes_CRUD.php">
                 <div class="option">
                     <i class='bx bx-group' title="Pacientes"></i>
                     <h4>Pacientes</h4>
