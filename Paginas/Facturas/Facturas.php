@@ -38,7 +38,7 @@ $query_citas->execute();
             <div class="right-date" id="fecha">AAAAAAAAAAA</div>
         </div>
 
-                        <div class="dropdown">
+        <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php echo $_SESSION['nombre']; ?>
             </button>
@@ -85,18 +85,17 @@ $query_citas->execute();
                 </div>
             </a>
 
- <?php 
-                if($_SESSION["tipo_usuario"]== "ADMIN")
-                {
+            <?php
+            if ($_SESSION["tipo_usuario"] == "ADMIN") {
                 echo "<a href='../config/config.php'>
                 <div class='option'>
                     <i class='bx bx-cog' title='Contacto'></i>
                     <h4>Configuración</h4>
                 </div>
             </a>";
-                }
+            }
 
-            
+
             ?>
 
 
@@ -147,16 +146,15 @@ $query_citas->execute();
                                 <font class="tn-in-text">Editar</font>
                             </button> </a>
                         &nbsp;&nbsp;&nbsp;
-                        <?php                         if($_SESSION["tipo_usuario"]== "ADMIN")
-                { ?>
-                        <a href="?action=drop&id=<?php echo $inf['ID_CITA'] . '&name=' . $inf['ID_Paciente'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
-                                <font class="tn-in-text">Remove</font>
-                            </button></a>
+                        <?php if ($_SESSION["tipo_usuario"] == "ADMIN") { ?>
+                            <a href="?action=drop&id=<?php echo $inf['ID_CITA'] . '&name=' . $inf['ID_Paciente'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
+                                    <font class="tn-in-text">Remove</font>
+                                </button></a>
                     </td>
-                    <?php }?>
-                <?php
+                <?php } ?>
+            <?php
             }
-                ?>
+            ?>
                 </tr>
         </table>
 
@@ -177,7 +175,7 @@ if ($_GET) {
     $id = $_GET['id'];
     $action = $_GET['action'];
 
-   
+
     if ($action == 'view') {
         $query = $con->prepare("SELECT * FROM citas WHERE ID_CITA ='$id'");
         $query->execute();
@@ -212,7 +210,7 @@ if ($_GET) {
 <strong>" . $Hora_Cita . "</strong>
 <br>
 <label>Costo de la cita</label>
-<strong>".$Costo."</strong>
+<strong>" . $Costo . "</strong>
 <br>
 <label>Telefono</label>
 <strong>$Telefono</strong>
