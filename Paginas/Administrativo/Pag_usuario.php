@@ -72,7 +72,7 @@ $citas_hoy->execute();
 
             <a href="Doctores_CRUD.php">
                 <div class="option">
-                    <i class="far fa-file" title="Portafolio"></i>
+                <i class="fa-solid fa-user-doctor" title="Doctores"></i>
                     <h4>Doctores</h4>
                 </div>
             </a>
@@ -142,13 +142,7 @@ $citas_hoy->execute();
             </div>
         </div>
 
-        <div class="card">
-            <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
-            <div class="container">
-                <h4><b>Sus Citas Proximas</b></h4>
-                <p></p>
-            </div>
-        </div>
+
 
     </main>
 
