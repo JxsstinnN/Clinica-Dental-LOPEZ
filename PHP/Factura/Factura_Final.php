@@ -53,17 +53,17 @@ if ($_POST) {
     </div>
     <div id="app" class="col-11">
 
-        <h2>Factura <img src="../../IMGS/LOGOS/Logo_Principal.png" alt=""></h2>
+        <h2>Factura</h2>
 
         <div class="row my-3">
             <div class="col-10">
-                <h1>Clñinica</h1>
-                <p>Av. Winston Churchill</p>
-                <p>Plaza Orleans 3er. nivel</p>
-                <p>local 312</p>
+                <h1>Clinica Grullón</h1>
+                <p>Av. Juan pablo duarte</p>
+                <p>Plaza internacional 12vo nivel</p>
+                <p>local 3512</p>
             </div>
             <div class="col-2">
-                <img src="~/images/Mil-Pasos_Negro.png" />
+                <img src="../../IMGS/LOGOS/Logo_Principal.png" />
             </div>
         </div>
 
@@ -73,13 +73,13 @@ if ($_POST) {
             <div class="col-3">
                 <h5>Facturar a</h5>
                 <p>
-                    Arian Manuel Garcia Reynoso
+                    <?php echo $nombre_paciente;?>
                 </p>
             </div>
             <div class="col-3">
                 <h5>Enviar a</h5>
                 <p>
-                    Cotui, Sanchez Ramirez
+                    Santa 
                     Santa Fe, #19
                     arianmanuel75@gmail.com
                 </p>

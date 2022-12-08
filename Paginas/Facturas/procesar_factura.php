@@ -203,6 +203,7 @@ if ($_GET) {
             <input type="hidden" value="<?php echo $result['ID_Paciente']; ?>" name="id_paciente">
             <input type="hidden" name="id_cita" value="<?php echo $result['ID_CITA']; ?>">
             <input type="hidden" name="id_medico" value="<?php echo $result['ID_Medico']; ?>">
+            <input type="hidden" name="dire_paci" value="<?php echo $result['Direccion']; ?>">
 
         </form>
 
