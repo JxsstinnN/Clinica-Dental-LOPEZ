@@ -130,6 +130,7 @@ body{
   width: 30%;
   position: relative;
   transition: all 5s ease-in-out;
+  font-size: initial;
 }
 
 .popupc h2 {
@@ -155,11 +156,8 @@ body{
   overflow: auto;
 }
 
-.tarj-div
-{
-    font-size: initial;
-    text-align: center;
-}
+
+
 
 @media screen and (max-width: 700px){
   .box{
