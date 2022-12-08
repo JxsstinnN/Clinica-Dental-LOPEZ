@@ -33,12 +33,12 @@ if ($_POST) {
     if ($query_factura->execute()) {
         $act_cita = $con->prepare("UPDATE `citas` SET `Completado` = 'SI' WHERE `citas`.`ID_CITA` = '$id_cita'");
         $act_cita->execute();
-        $query_factura = $con->prepare("SELECT * FROM FACTURA");
-        $query_factura->execute();
-        $query_factura->fetchAll(PDO::FETCH_ASSOC);
-        $creado_a = $query_factura['Creado_A'];
-        $id_factura = $query_factura['ID_Factura'];
     }
+    $query_factura = $con->prepare("SELECT * FROM FACTURA");
+    $query_factura->execute();
+    $result = $query_factura->fetch(PDO::FETCH_ASSOC);
+    $id_factura = $result['ID_Factura'];
+    $creado_a = $result['Creado_A'];
 }
 
 ?>
@@ -52,19 +52,16 @@ if ($_POST) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Factura</title>
     <!-- Liberias-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-    <!-- Fin de las Liberias-->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
     <link rel="stylesheet" href="../../CSS/factura_final.css">
+    <!-- Fin de las Liberias-->
+
 </head>
 
 <body>
 
     </div>
-    <div id="app" class="col-11">
+    <div id="factura" class="col-11">
 
         <h2>Factura</h2>
 
@@ -76,7 +73,7 @@ if ($_POST) {
                 <p>local 3512</p>
             </div>
             <div class="col-2">
-                <img src="../../IMGS/LOGOS/Logo_Principal.png" />
+            <img src="../../IMGS/LOGOS/Logo_Principal.png" alt="" width="250px"> 
             </div>
         </div>
 
@@ -101,8 +98,8 @@ if ($_POST) {
                 <h5>Fecha de vencimiento</h5>
             </div>
             <div class="col-3">
-                <h5><?php $id_factura  ?></h5>
-                <p><?php $creado_a ?></p>
+                <h5><?php echo $id_factura;  ?></h5>
+                <p><?php echo $creado_a ; ?></p>
                 <p>09/05/2250</p>
             </div>
         </div>
@@ -124,11 +121,11 @@ if ($_POST) {
                 <tfoot>
                     <tr>
                         <th>ITBIS</th>
-                        <th><?php echo $itbis; ?></th>
+                        <td><?php echo $itbis; ?></td>
                         <th>Total Factura</th>
-                        <th>RD <?php echo $balance_final; ?></th>
+                        <td>RD <?php echo $balance_final; ?></td>
                         <th>Usuario que lo atendio</th>
-                        <th><?php echo $_SESSION['nombre']; ?></th>
+                        <td><?php echo $_SESSION['nombre']; ?></td>
                     </tr>
                 </tfoot>
             </table>
@@ -136,6 +133,7 @@ if ($_POST) {
 
 
     </div>
+
 
 </body>
 
