@@ -61,7 +61,7 @@ if ($_POST) {
 <body>
 
     </div>
-    <div id="factura" class="col-11">
+    <div  class="col-11">
 
         <h2>Factura</h2>
 

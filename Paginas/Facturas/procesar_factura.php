@@ -96,6 +96,13 @@ if ($_GET) {
                 </div>
             </a>
 
+            <a href="Facturas.php" class="selected">
+                <div class="option">
+                    <i class="fa-solid fa-receipt"></i>
+                    <h4>Facturas</h4>
+                </div>
+            </a>
+
             <?php
             if ($_SESSION["tipo_usuario"] == "ADMIN") {
                 echo "<a href='../config/config.php'>
@@ -121,7 +128,7 @@ if ($_GET) {
 
             <div class="tab">Datos del cliente:
                 <p class="inf">Nombre<input class="text" value="<?php echo $nombre_paciente ?>" readonly name="nombre_paciente"></p>
-                <p class="inf">Apellido<input class="text" name="apellido_paciente"  value="<?php echo $ape_paciente ?>" readonly></p>
+                <p class="inf">Apellido<input class="text" name="apellido_paciente" value="<?php echo $ape_paciente ?>" readonly></p>
                 <p class="inf">Servicio Realizado<input class="text" value=" <?php echo $titulo; ?>" readonly name="servicio_paciente"></p>
             </div>
 
