@@ -85,7 +85,7 @@ $query_citas->execute();
                 </div>
             </a>
 
-            <a href="Facturas.php" class="selected">
+            <a href="Facturas_index.php" class="selected">
                 <div class="option">
                     <i class="fa-solid fa-receipt"></i>
                     <h4>Facturas</h4>

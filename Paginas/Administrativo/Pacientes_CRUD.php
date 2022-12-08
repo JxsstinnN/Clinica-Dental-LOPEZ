@@ -81,7 +81,7 @@ $query_medic->execute();
                 </div>
             </a>
 
-            <a href="../Facturas/Facturas.php" >
+            <a href="../Facturas/Facturas_index.php">
                 <div class="option">
                     <i class="fa-solid fa-receipt"></i>
                     <h4>Facturas</h4>

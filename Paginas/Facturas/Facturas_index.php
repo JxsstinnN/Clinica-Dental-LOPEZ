@@ -1,16 +1,7 @@
-<?php
-session_start();
+<?php session_start();
 require_once "../../Clases/config.php";
 require_once '../../Clases/sesion.php';
 
-$querypaciente = $con->prepare("SELECT * FROM PACIENTES ");
-$querypaciente->execute();
-
-$citas_proximas = $con->prepare("select Fecha_Cita from citas where Fecha_Cita > CURRENT_DATE");
-$citas_proximas->execute();
-
-$citas_hoy = $con->prepare("Select * from citas where Fecha_Cita = CURRENT_DATE");
-$citas_hoy->execute();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +54,7 @@ $citas_hoy->execute();
 
         <div class="options__menu">
 
-            <a href="Pag_usuario.php" class="selected">
+            <a href="../Administrativo/Pag_usuario.php">
                 <div class="option">
                     <i class="fas fa-home" title="Inicio"></i>
                     <h4>Inicio</h4>
@@ -98,18 +89,6 @@ $citas_hoy->execute();
                 </div>
             </a>
 
-            <?php
-            if ($_SESSION["tipo_usuario"] == "ADMIN") {
-                echo "<a href='../config/config.php'>
-                <div class='option'>
-                    <i class='bx bx-cog' title='Contacto'></i>
-                    <h4>Configuración</h4>
-                </div>
-            </a>";
-            }
-
-
-            ?>
 
 
         </div>
@@ -118,37 +97,23 @@ $citas_hoy->execute();
 
     <main>
         <h1>Hola <?php echo $_SESSION['tipo_usuario'] . '&nbsp;' . $_SESSION['nombre']; ?></h1><br>
-        <div class="card">
-            <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
-            <div class="container">
-                <h4><b>Citas Próximas Generales</b></h4>
-                <p style="font-size:20px"><?php echo $citas_proximas->rowCount(); ?></p>
+        <a href="Facturas_CRUD.php">
+            <div class="card">
+                <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
+                <div class="container">
+                    <h4><b>Facturas Cobradas</b></h4>
+                </div>
             </div>
-        </div>
+        </a> 
 
-        <div class="card">
-            <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
-            <div class="container">
-                <h4><b>Pacientes</b></h4>
-                <p style="font-size:20px"><?php echo $querypaciente->rowCount(); ?></p>
+        <a href="Facturas.php">
+            <div class="card">
+                <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
+                <div class="container">
+                    <h4><b>Facturas Pendientes</b></h4>
+                </div>
             </div>
-        </div>
-
-        <div class="card">
-            <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
-            <div class="container">
-                <h4><b>Sesiones Hoy</b></h4>
-                <p style="font-size:20px"><?php echo $citas_hoy->rowCount(); ?></p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
-            <div class="container">
-                <h4><b>Sus Citas Proximas</b></h4>
-                <p></p>
-            </div>
-        </div>
+        </a>
 
     </main>
 
