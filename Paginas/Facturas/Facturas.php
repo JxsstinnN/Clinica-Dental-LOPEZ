@@ -193,7 +193,7 @@ if ($_GET) {
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
     <h2>Ver Detalles del medico</h2>
-    <a href='Citas.php' class='close'>&times;</a>
+    <a href='Facturas.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
     <label>Titulo de la cita:</label>
@@ -214,8 +214,7 @@ if ($_GET) {
 <label>Costo de la cita</label>
 <strong>" . $Costo . "</strong>
 <br>
-<label>Telefono</label>
-<strong>$Telefono</strong>
+
 <br>
 </div>
 </div>

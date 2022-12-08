@@ -216,32 +216,32 @@ if ($_GET) {
 <strong>" . $ID_Medico . "</strong>
 <br>
 
-<label>ID_Cita</label>
+<label>ID_Cita:</label>
 <strong>" . $ID_CITA . "</strong>
 <br>
 
-<label>Costo Cita</label>
+<label>Costo Cita:</label>
 <strong>".$costo_cita."</strong>
 <br>
 
-<label>Balance Neto</label>
+<label>Balance Neto:</label>
 <strong>".$balance_neto."</strong>
 <br>
 
 
-<label>ITBIS</label>
+<label>ITBIS:</label>
 <strong>".$itbis."</strong>
 <br>
 
-<label>Pago</label>
+<label>Pago:</label>
 <strong>". $pago ."</strong>
 <br>
 
-<label>Balance_Final</label>
+<label>Balance_Final:</label>
 <strong>". $balance_Final ."</strong>
 <br>
 
-<label>Balance_Final</label>
+<label>Creado_A:</label>
 <strong>". $creado_A ."</strong>
 <br>
 
