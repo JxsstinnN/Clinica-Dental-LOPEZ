@@ -20,7 +20,7 @@ if ($_POST) {
     $itbis = (($costo_servicio * 18) / 100) + $costo_servicio;
     $balance_final = $costo_servicio + $itbis;
 
-    $query_factura = $con->prepare("INSERT INTO FACTURA VALUES (NULL,:id_paciente,:user_id,:id_medico,:ID_CITA,:costo_cita,:Balance_neto,:ITBIS,:PAGO,:BALANCE_FINAL)");
+    $query_factura = $con->prepare("INSERT INTO FACTURA VALUES (NULL,:id_paciente,:user_id,:id_medico,:ID_CITA,:costo_cita,:Balance_neto,:ITBIS,:PAGO,:BALANCE_FINAL,NULL)");
     $query_factura->bindParam(":id_paciente", $id_paciente, PDO::PARAM_STR);
     $query_factura->bindParam(":user_id", $user_id, PDO::PARAM_STR);
     $query_factura->bindParam(":id_medico", $id_medico, PDO::PARAM_STR);
@@ -33,7 +33,11 @@ if ($_POST) {
     if ($query_factura->execute()) {
         $act_cita = $con->prepare("UPDATE `citas` SET `Completado` = 'SI' WHERE `citas`.`ID_CITA` = '$id_cita'");
         $act_cita->execute();
-        $query_factura = $con
+        $query_factura = $con->prepare("SELECT * FROM FACTURA");
+        $query_factura->execute();
+        $query_factura->fetchAll(PDO::FETCH_ASSOC);
+        $creado_a = $query_factura['Creado_A'];
+        $id_factura = $query_factura['ID_Factura'];
     }
 }
 
@@ -47,6 +51,13 @@ if ($_POST) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Factura</title>
+    <!-- Liberias-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <!-- Fin de las Liberias-->
     <link rel="stylesheet" href="../../CSS/factura_final.css">
 </head>
 
@@ -75,7 +86,7 @@ if ($_POST) {
             <div class="col-3">
                 <h5>Facturar a</h5>
                 <p>
-                    <?php echo $nombre_paciente;?>
+                    <?php echo $nombre_paciente; ?>
                 </p>
             </div>
             <div class="col-3">
@@ -90,9 +101,9 @@ if ($_POST) {
                 <h5>Fecha de vencimiento</h5>
             </div>
             <div class="col-3">
-                <h5></h5>
-                <p>09/05/2019</p>
-                <p>09/05/2019</p>
+                <h5><?php $id_factura  ?></h5>
+                <p><?php $creado_a ?></p>
+                <p>09/05/2250</p>
             </div>
         </div>
 
@@ -100,50 +111,30 @@ if ($_POST) {
             <table class="table table-borderless factura">
                 <thead>
                     <tr>
-                        <th>Cant.</th>
                         <th>Descripcion</th>
-                        <th>Precio Unitario</th>
-                        <th>Importe</th>
+                        <th>Precio del Servicio</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>Clases de Cha-Cha-Cha</td>
-                        <td>3,000.00</td>
-                        <td>3,000.00</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Clases de Salsa</td>
-                        <td>4,000.00</td>
-                        <td>12,000.00</td>
+                        <td><?php echo $servicio; ?></td>
+                        <td><?php echo $costo_servicio; ?></td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th></th>
-                        <th></th>
+                        <th>ITBIS</th>
+                        <th><?php echo $itbis; ?></th>
                         <th>Total Factura</th>
-                        <th>RD$15,000.00</th>
+                        <th>RD <?php echo $balance_final; ?></th>
+                        <th>Usuario que lo atendio</th>
+                        <th><?php echo $_SESSION['nombre']; ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
 
-        <div class="cond row">
-            <div class="col-12 mt-3">
-                <h4>Condiciones y formas de pago</h4>
-                <p>El pago se debe realizar en un plazo de 15 dias.</p>
-                <p>
-                    Banco Banreserva
-                    <br />
-                    IBAN: DO XX 0075 XXXX XX XX XXXX XXXX
-                    <br />
-                    Código SWIFT: BPDODOSXXXX
-                </p>
-            </div>
-        </div>
+
     </div>
 
 </body>
