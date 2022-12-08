@@ -127,10 +127,10 @@ if ($_GET) {
             <div class="tab">Datos de pago:
                 <p class="inf"><input class="text" name="costo_serv" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
                 <p class="inf">Tipo de Pago</p>
-                <a href="#efe" style="text-decoration: none; color:black;" class="pago">
+                <a href="#efe" style="text-decoration: none; color:black;" class="pago" id="efeA">
                     <p class="inf">Efectivo</p>
                 </a><br>
-                <a href="#tar" style="text-decoration: none; color:black;" class="pago">
+                <a href="#tar" style="text-decoration: none; color:black;" class="pago" id="tarA">
                     <p class="inf">Tarjeta</p>
                 </a>
             </div>
@@ -161,7 +161,7 @@ if ($_GET) {
                         RD$<p class="inf"><input class="text" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
                         RD$<p class="inf"><input class="text" placeholder="Monto Recibido" name="recibido_cliente"></p>
                     </div>
-                    <a href="#" class="button1" class="efeBtn">Aceptar</a>
+                    <a href="#" class="button1" id="efeBtn" onClick="oculta()">Aceptar</a>
                 </div>
             </div>
 
@@ -192,7 +192,7 @@ if ($_GET) {
                         </p>
 
                     </div>
-                    <a href="#" class="button1" id="tarjetaBtn">Aceptar</a>
+                    <a href="#" class="button1" id="efeBtn" onClick="oculta1()">Aceptar</a>
                 </div>
             </div>
             </div>
@@ -204,7 +204,7 @@ if ($_GET) {
         </form>
 
     </main>
-    
+    <script src="../../JS/factura.js"></script>
 </body>
 
 </html>

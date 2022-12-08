@@ -50,4 +50,17 @@ var currentTab = 0; // Current tab is set to be the first tab (0)
             }
 
 
-            
+            //CODIGO PARA COMPROBAR CUAL BOTON SE SELECCIONO
+
+
+           function oculta()
+            {
+                document.getElementById("efeHidden").value ='Efectivo';
+                document.getElementById('tarA').style.display='none';
+            };
+
+            function oculta1()
+            {
+                document.getElementById("efeHidden").value ='Tarjeta';
+                document.getElementById('efeA').style.display='none';
+            };
