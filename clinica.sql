@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-12-2022 a las 16:23:06
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.2.13
+-- Tiempo de generación: 08-12-2022 a las 07:29:14
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -38,29 +37,55 @@ CREATE TABLE `citas` (
   `ID_Paciente` int(3) NOT NULL,
   `ID_Medico` int(3) NOT NULL,
   `User_ID` int(3) NOT NULL,
-  `Costo` decimal(10,0) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Costo` decimal(10,0) NOT NULL,
+  `Completado` enum('SI','NO') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `citas`
 --
 
-INSERT INTO `citas` (`ID_CITA`, `Titulo`, `Notas`, `Mensaje`, `Fecha_Cita`, `Hora_Cita`, `ID_Paciente`, `ID_Medico`, `User_ID`, `Costo`) VALUES
-(1, 'Endoconcia', 'El paciente es un aqueroso', 'Opa opa ', '2022-12-08', '08:10:07', 63, 3, 7, '1500'),
-(4, 'Limpieza Dental', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2022-12-30', '15:34:00', 1, 3, 9, '9000'),
-(5, '3 caries a remover', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2022-12-30', '15:34:00', 1, 3, 9, '9000'),
-(6, 'Limpieza Dental', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2023-01-05', '14:41:00', 6, 2, 9, '1600');
+INSERT INTO `citas` (`ID_CITA`, `Titulo`, `Notas`, `Mensaje`, `Fecha_Cita`, `Hora_Cita`, `ID_Paciente`, `ID_Medico`, `User_ID`, `Costo`, `Completado`) VALUES
+(1, 'Endoconcia', 'El paciente es un aqueroso', 'Opa opa ', '2022-12-08', '08:10:07', 63, 3, 7, '1500', 'NO'),
+(4, 'Limpieza Dental', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2022-12-30', '15:34:00', 1, 3, 9, '9000', 'NO'),
+(5, '3 caries a remover', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2022-12-30', '15:34:00', 1, 3, 9, '9000', 'NO'),
+(6, 'Limpieza Dental', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2023-01-05', '14:41:00', 6, 2, 9, '1600', 'SI');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `especialidad`
+-- Estructura de tabla para la tabla `factura`
 --
 
-CREATE TABLE `especialidad` (
+CREATE TABLE `factura` (
+  `ID_Factura` int(5) NOT NULL,
+  `ID_Paciente` int(2) NOT NULL,
+  `User_ID` int(2) NOT NULL,
   `ID_Medico` int(3) NOT NULL,
-  `Especialidad` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `ID_CITA` int(3) NOT NULL,
+  `costo_cita` float NOT NULL,
+  `Balance_Neto` float NOT NULL,
+  `ITBIS` float NOT NULL,
+  `Pago` varchar(10) NOT NULL,
+  `Balance_Final` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `factura`
+--
+
+INSERT INTO `factura` (`ID_Factura`, `ID_Paciente`, `User_ID`, `ID_Medico`, `ID_CITA`, `costo_cita`, `Balance_Neto`, `ITBIS`, `Pago`, `Balance_Final`) VALUES
+(5, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
+(6, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
+(7, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
+(8, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
+(9, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
+(10, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
+(11, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
+(12, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
+(13, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
+(14, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
+(15, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620);
 
 -- --------------------------------------------------------
 
@@ -77,8 +102,8 @@ CREATE TABLE `medico` (
   `Fecha_Nacimiento` date NOT NULL,
   `Direccion` varchar(50) NOT NULL,
   `Telefono` varchar(12) NOT NULL,
-  `Creado_A` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Creado_A` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `medico`
@@ -104,8 +129,8 @@ CREATE TABLE `pacientes` (
   `Direccion` varchar(150) NOT NULL,
   `Telefono` varchar(15) NOT NULL,
   `Alergias` varchar(30) NOT NULL,
-  `Creado_En` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Creado_En` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `pacientes`
@@ -1125,9 +1150,9 @@ CREATE TABLE `usuario` (
   `User_ID` int(3) NOT NULL,
   `Nombre_usuario` varchar(15) NOT NULL,
   `password` varchar(150) NOT NULL,
-  `Fecha_Creado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Fecha_Creado` timestamp NOT NULL DEFAULT current_timestamp(),
   `Tipo_usuario` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -1156,10 +1181,14 @@ ALTER TABLE `citas`
   ADD KEY `User_ID` (`User_ID`);
 
 --
--- Indices de la tabla `especialidad`
+-- Indices de la tabla `factura`
 --
-ALTER TABLE `especialidad`
-  ADD KEY `ID_Medico` (`ID_Medico`);
+ALTER TABLE `factura`
+  ADD PRIMARY KEY (`ID_Factura`),
+  ADD KEY `ID_Paciente` (`ID_Paciente`),
+  ADD KEY `ID_Usuario` (`User_ID`),
+  ADD KEY `ID_Medico` (`ID_Medico`),
+  ADD KEY `ID_CITA` (`ID_CITA`);
 
 --
 -- Indices de la tabla `medico`
@@ -1190,10 +1219,10 @@ ALTER TABLE `citas`
   MODIFY `ID_CITA` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `especialidad`
+-- AUTO_INCREMENT de la tabla `factura`
 --
-ALTER TABLE `especialidad`
-  MODIFY `ID_Medico` int(3) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `factura`
+  MODIFY `ID_Factura` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `medico`
@@ -1226,10 +1255,13 @@ ALTER TABLE `citas`
   ADD CONSTRAINT `citas_ibfk_3` FOREIGN KEY (`ID_Paciente`) REFERENCES `pacientes` (`ID_Paciente`);
 
 --
--- Filtros para la tabla `especialidad`
+-- Filtros para la tabla `factura`
 --
-ALTER TABLE `especialidad`
-  ADD CONSTRAINT `especialidad_ibfk_1` FOREIGN KEY (`ID_Medico`) REFERENCES `medico` (`ID_Medico`);
+ALTER TABLE `factura`
+  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`ID_Paciente`) REFERENCES `pacientes` (`ID_Paciente`),
+  ADD CONSTRAINT `factura_ibfk_2` FOREIGN KEY (`ID_Medico`) REFERENCES `medico` (`ID_Medico`),
+  ADD CONSTRAINT `factura_ibfk_3` FOREIGN KEY (`User_ID`) REFERENCES `usuario` (`User_ID`),
+  ADD CONSTRAINT `factura_ibfk_4` FOREIGN KEY (`ID_CITA`) REFERENCES `citas` (`ID_CITA`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
