@@ -304,7 +304,70 @@ if ($_GET) {
 </div>
 </div>
 ";
-    } else if ($action == 'drop') {
+    }
+    else if($action == 'insert')
+    {
+        $query = $con->prepare("SELECT * FROM pacientes WHERE ID_Paciente ='$id'");
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        $Nombre = $result['Nombre_Paciente'];
+        $Apellido = $result['Apellido_Paciente'];
+        $Cedula = $result['Cedula'];
+        $Genero = $result['Genero'];
+        $Fecha_Nac = $result['Fecha_Nac'];
+        $Direccion = $result['Direccion'];
+        $Telefono = $result['Telefono'];
+
+        echo   "<div class='overlay' id='divOne'>
+    <div class='wrapper'>
+    <h2>Insertar datos del paciente</h2>
+    <a href='Doctores_CRUD.php' class='close'>&times;</a>
+    <div class='content'>
+    <div class='container'>
+    <form action='../../PHP/Paciente/Nuevo_paciente.php' method='post'>
+    <label>Nombre:</label>
+    <input type='text' name='nombre_pac' id='nombre_doc'>
+    <br>
+
+    <label for='apellido'>Apellido:</label>
+    <input type='text' name='ape_pac' id='ape_doc'>
+    <br>
+
+    <label for='Cedula'>Cedula:</label>
+    <input type='text' name='cedula_pac' id='cedula_doc'>
+    <br>
+
+    <label for='Genero'>Genero:</label>
+     <select name='genero_pac' id='genero_doc'>
+        <option value='F'>Femenino</option>
+        <option value='M'>Masculino</option>
+        </select>
+    <br>
+
+    <label for='Fecha_Nacimiento'>Fecha de Nacimiento:</label>
+    <input type='text' name='fecha_nac_pac' id='fecha_nac_pac'>
+    <br>
+
+    <label for='Direccion'>Direccion</label>
+    <input type='text' name='dire_pac' id='dire_pac'>
+    <br>
+
+<label for='Telefono'>Telefono</label>
+    <input type='text' name='telefono_pac' id='telefono_pac'>
+<br>
+<input type='submit' value='Aplicar Cambios' >
+</form>
+
+</div>
+</div>
+</div>
+</div>
+";
+    }
+    
+    
+    
+    else if ($action == 'drop') {
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
         <h2>Eliminar Registro de Médico</h2>

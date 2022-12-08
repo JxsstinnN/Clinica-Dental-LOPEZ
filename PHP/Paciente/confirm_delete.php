@@ -11,7 +11,7 @@ if($_POST)
         $com1 = $con->prepare("SET foreign_key_checks = 1");
         $com1->execute();
         echo "<h2>Se ha editado exitosamente</h2>";
-        header('Location:http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/pruebalista_pacientes.php');
+        header('Location:http://localhost/Clinica%20Dental%20LOPEZ/Paginas/Administrativo/Pacientes_CRUD.php');
     }
     else
     {
