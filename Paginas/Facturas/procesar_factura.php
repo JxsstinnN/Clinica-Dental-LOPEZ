@@ -119,9 +119,9 @@ if ($_GET) {
         <form action="../../PHP/Factura/Factura_final.php" method="post" id="FormFac">
             <h1>Facturación:</h1>
             <div class="tab">Datos del cliente:
-                <p class="inf">Nombre<input class="text" value="<?php echo $nombre_paciente ?>" readonly></p>
-                <p class="inf">Apellido<input class="text" value="<?php echo $ape_paciente ?>" readonly></p>
-                <p class="inf">Servicio Realizado<input class="text" value=" <?php echo $titulo; ?>" readonly></p>
+                <p class="inf">Nombre<input class="text" value="<?php echo $nombre_paciente ?>" readonly name="nombre_paciente"></p>
+                <p class="inf">Apellido<input class="text" value="<?php echo $ape_paciente ?>" readonly name="ape_paciente"></p>
+                <p class="inf">Servicio Realizado<input class="text" value=" <?php echo $titulo; ?>" readonly name="servicio_paciente"></p>
             </div>
 
             <div class="tab">Datos de pago:
@@ -158,7 +158,7 @@ if ($_GET) {
                     <h2>Efectivo</h2>
                     <a class="close" href="#">&times;</a>
                     <div class="content">
-                        RD$<p class="inf"><input class="text" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
+                        RD$<p class="inf"><input class="text" name="costo_servicio" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
                         RD$<p class="inf"><input class="text" placeholder="Monto Recibido" name="recibido_cliente"></p>
                     </div>
                     <a href="#" class="button1" id="efeBtn" onClick="oculta()">Aceptar</a>
@@ -198,7 +198,9 @@ if ($_GET) {
             </div>
             </div>
 
-            <input type="hidden" value="" id="tipoHidden">
+            <input type="hidden" value="" id="tipoHidden" name="tipopago">
+            <input type="hidden" value="<?php echo $result['ID_Paciente']; ?>" name="id_paciente">
+            <input type="hidden" name="id_medico" value="<?php echo $result['ID_Medico']; ?>">
 
         </form>
 
