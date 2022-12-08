@@ -119,7 +119,7 @@ $query_medic->execute();
         <!--Botones para hacer Querys y filtros -->
         <input type="text" id="BuscarInput" onkeyup="Sort()" placeholder="Busqueda" title="Type in a name" size="20">
 
-        <button type="button" class="btn btn-primary" id="BtnAgregarDoc"><a href="?action=insert">Agregar nuevo dotor </a></button>
+        <button type="button" class="btn btn-primary" id="BtnAgregarDoc"><a href="?action=insert">Agregar nuevo Paciente </a></button>
         <!-- Script para buscar por nombres-->
         <script src="../../JS/sort.js"></script>
 
