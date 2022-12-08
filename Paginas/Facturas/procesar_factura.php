@@ -116,89 +116,89 @@ if ($_GET) {
 
 
     <main>
-        <form action="factura_final.php" method="post" id="FormFac"></form>
-        <h1>Facturación:</h1>
-        <div class="tab">Datos del cliente:
-            <p class="inf">Nombre<input class="text" value="<?php echo $nombre_paciente ?>" readonly></p>
-            <p class="inf">Apellido<input class="text" value="<?php echo $ape_paciente ?>" readonly></p>
-            <p class="inf">Servicio Realizado<input class="text" value=" <?php echo $titulo; ?>" readonly></p>
-        </div>
-
-        <div class="tab">Datos de pago:
-            <p class="inf"><input class="text" name="costo_serv" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
-            <p class="inf">Tipo de Pago</p>
-            <a href="#efe" style="text-decoration: none; color:black;" class="pago">
-                <p class="inf">Efectivo</p>
-            </a><br>
-            <a href="#tar" style="text-decoration: none; color:black;" class="pago">
-                <p class="inf">Tarjeta</p>
-            </a>
-        </div>
-
-
-
-        <div style="overflow:auto;">
-            <div style="float:right;">
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        <form action="factura_final.php" method="post" id="FormFac">
+            <h1>Facturación:</h1>
+            <div class="tab">Datos del cliente:
+                <p class="inf">Nombre<input class="text" value="<?php echo $nombre_paciente ?>" readonly></p>
+                <p class="inf">Apellido<input class="text" value="<?php echo $ape_paciente ?>" readonly></p>
+                <p class="inf">Servicio Realizado<input class="text" value=" <?php echo $titulo; ?>" readonly></p>
             </div>
-        </div>
 
-        <!-- Circles which indicates the steps of the form: -->
-        <div style="text-align:center;margin-top:40px;">
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-        </div>
+            <div class="tab">Datos de pago:
+                <p class="inf"><input class="text" name="costo_serv" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
+                <p class="inf">Tipo de Pago</p>
+                <a href="#efe" style="text-decoration: none; color:black;" class="pago">
+                    <p class="inf">Efectivo</p>
+                </a><br>
+                <a href="#tar" style="text-decoration: none; color:black;" class="pago">
+                    <p class="inf">Tarjeta</p>
+                </a>
+            </div>
 
 
-        <div id="efe" class="overlay1">
-            <div class="popupc">
-                <h2>Efectivo</h2>
-                <a class="close" href="#">&times;</a>
-                <div class="content">
-                    RD$<p class="inf"><input class="text" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
-                    RD$<p class="inf"><input class="text" placeholder="Monto Recibido" name="recibido_cliente"></p>
+
+            <div style="overflow:auto;">
+                <div style="float:right;">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                 </div>
-                <a href="#" class="button1">Aceptar</a>
             </div>
-        </div>
 
-        <div id="tar" class="overlay1">
-            <div class="popupc">
-                <h2 class="center">Tarjeta</h2>
-                <a class="close" href="#">&times;</a>
-                <div class="content">
-                    Name on Card
-                    <p class="inf">
-                        <input type="text" id="cname" name="nomb_tarjeta" placeholder="John More Doe">
-                    </p>
-                    Credit card number
-                    <p class="inf">
-                        <input type="text" id="ccnum" name="num_tarjeta" placeholder="1111-2222-3333-4444">
-                    </p>
-                    Exp Month
-                    <p class="inf">
-                        <input type="text" id="expmonth" name="mesexp_tarj" placeholder="September">
-                    </p>
-                    Exp Year
-                    <p class="inf">
-                        <input type="text" id="añoexp_tarj" name="añoexp_tarj" placeholder="2018">
-                    </p>
-                    CVV
-                    <p class="inf">
-                        <input type="text" id="cvv" name="cvv" placeholder="352">
-                    </p>
+            <!-- Circles which indicates the steps of the form: -->
+            <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
 
+
+            <div id="efe" class="overlay1">
+                <div class="popupc">
+                    <h2>Efectivo</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        RD$<p class="inf"><input class="text" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
+                        RD$<p class="inf"><input class="text" placeholder="Monto Recibido" name="recibido_cliente"></p>
+                    </div>
+                    <a href="#" class="button1">Aceptar</a>
                 </div>
-                <a href="#" class="button1">Aceptar</a>
             </div>
-        </div>
-        </div>
-        </div>
 
+            <div id="tar" class="overlay1">
+                <div class="popupc">
+                    <h2 class="center">Tarjeta</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        Nombre de la tarjeta
+                        <p class="inf">
+                            <input type="text" id="cname" name="nomb_tarjeta" placeholder="">
+                        </p>
+                        Numero de la tarjeta
+                        <p class="inf">
+                            <input type="text" id="ccnum" name="num_tarjeta" placeholder="1111-2222-3333-4444">
+                        </p>
+                        Mes de expiración
+                        <p class="inf">
+                            <input type="text" id="expmonth" name="mesexp_tarj" placeholder="September">
+                        </p>
+                        Año de expiracion
+                        <p class="inf">
+                            <input type="text" id="añoexp_tarj" name="añoexp_tarj" placeholder="2018">
+                        </p>
+                        CVV
+                        <p class="inf">
+                            <input type="text" id="cvv" name="cvv" placeholder="352">
+                        </p>
 
+                    </div>
+                    <a href="#" class="button1">Aceptar</a>
+                </div>
+            </div>
+            </div>
+            </div>
+
+        </form>
         <script>
             var currentTab = 0; // Current tab is set to be the first tab (0)
             showTab(currentTab); // Display the current tab
