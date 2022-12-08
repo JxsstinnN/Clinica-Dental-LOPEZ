@@ -116,7 +116,7 @@ if ($_GET) {
 
 
     <main>
-        <form action="factura_final.php" method="post" id="FormFac">
+        <form action="../../PHP/Factura/Factura_final.php" method="post" id="FormFac">
             <h1>Facturación:</h1>
             <div class="tab">Datos del cliente:
                 <p class="inf">Nombre<input class="text" value="<?php echo $nombre_paciente ?>" readonly></p>
@@ -161,7 +161,7 @@ if ($_GET) {
                         RD$<p class="inf"><input class="text" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
                         RD$<p class="inf"><input class="text" placeholder="Monto Recibido" name="recibido_cliente"></p>
                     </div>
-                    <a href="#" class="button1">Aceptar</a>
+                    <a href="#" class="button1" class="efeBtn">Aceptar</a>
                 </div>
             </div>
 
@@ -192,66 +192,19 @@ if ($_GET) {
                         </p>
 
                     </div>
-                    <a href="#" class="button1">Aceptar</a>
+                    <a href="#" class="button1" id="tarjetaBtn">Aceptar</a>
                 </div>
             </div>
             </div>
             </div>
 
+            <input type="hidden" value="" id="efeHidden">
+            <input type="hidden" value="" id="tarHidden">
+
         </form>
-        <script>
-            var currentTab = 0; // Current tab is set to be the first tab (0)
-            showTab(currentTab); // Display the current tab
 
-            function showTab(n) {
-                // This function will display the specified tab of the form ...
-                var x = document.getElementsByClassName("tab");
-                x[n].style.display = "block";
-                // ... and fix the Previous/Next buttons:
-                if (n == 0) {
-                    document.getElementById("prevBtn").style.display = "none";
-                } else {
-                    document.getElementById("prevBtn").style.display = "inline";
-                }
-                if (n == (x.length - 1)) {
-                    document.getElementById("nextBtn").innerHTML = "Submit";
-                } else {
-                    document.getElementById("nextBtn").innerHTML = "Next";
-                }
-                // ... and run a function that displays the correct step indicator:
-                fixStepIndicator(n)
-            }
-
-            function nextPrev(n) {
-                // This function will figure out which tab to display
-                var x = document.getElementsByClassName("tab");
-                // Exit the function if any field in the current tab is invalid:
-                // Hide the current tab:
-                x[currentTab].style.display = "none";
-                // Increase or decrease the current tab by 1:
-                currentTab = currentTab + n;
-                // if you have reached the end of the form... :
-                if (currentTab >= x.length) {
-                    //...the form gets submitted:
-                    document.getElementById("regForm").submit();
-                    return false;
-                }
-                // Otherwise, display the correct tab:
-                showTab(currentTab);
-            }
-
-
-            function fixStepIndicator(n) {
-                // This function removes the "active" class of all steps...
-                var i, x = document.getElementsByClassName("step");
-                for (i = 0; i < x.length; i++) {
-                    x[i].className = x[i].className.replace(" active", "");
-                }
-                //... and adds the "active" class to the current step:
-                x[n].className += " active";
-            }
-        </script>
     </main>
+    
 </body>
 
 </html>
