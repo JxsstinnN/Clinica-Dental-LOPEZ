@@ -64,3 +64,5 @@ var currentTab = 0; // Current tab is set to be the first tab (0)
                 document.getElementById("efeHidden").value ='Tarjeta';
                 document.getElementById('efeA').style.display='none';
             };
+
+            
