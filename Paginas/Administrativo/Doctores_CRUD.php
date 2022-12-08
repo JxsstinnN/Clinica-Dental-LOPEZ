@@ -315,7 +315,7 @@ if ($_GET) {
         echo   "<div class='overlay' id='divOne'>
     <div class='wrapper'>
     <h2>Insertar datos medico</h2>
-    <a href='AAAAAAAAAAAAAA.php' class='close'>&times;</a>
+    <a href='Doctores_CRUD.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
     <form action='../../PHP/DOCTOR/Nuevo_doctor.php' method='post'>

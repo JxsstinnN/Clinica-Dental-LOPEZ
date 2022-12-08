@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-12-2022 a las 07:29:14
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Tiempo de generación: 08-12-2022 a las 14:22:09
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -39,15 +40,15 @@ CREATE TABLE `citas` (
   `User_ID` int(3) NOT NULL,
   `Costo` decimal(10,0) NOT NULL,
   `Completado` enum('SI','NO') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `citas`
 --
 
 INSERT INTO `citas` (`ID_CITA`, `Titulo`, `Notas`, `Mensaje`, `Fecha_Cita`, `Hora_Cita`, `ID_Paciente`, `ID_Medico`, `User_ID`, `Costo`, `Completado`) VALUES
-(1, 'Endoconcia', 'El paciente es un aqueroso', 'Opa opa ', '2022-12-08', '08:10:07', 63, 3, 7, '1500', 'NO'),
-(4, 'Limpieza Dental', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2022-12-30', '15:34:00', 1, 3, 9, '9000', 'NO'),
+(1, 'Endoconcia', 'El paciente es un aqueroso', 'Opa opa ', '2022-12-08', '08:10:07', 63, 3, 7, '1500', 'SI'),
+(4, 'Limpieza Dental', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2022-12-30', '15:34:00', 1, 3, 9, '9000', 'SI'),
 (5, '3 caries a remover', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2022-12-30', '15:34:00', 1, 3, 9, '9000', 'NO'),
 (6, 'Limpieza Dental', 'tiene dos caries cuidaod', 'Saludoaaaaaaaaaaaa', '2023-01-05', '14:41:00', 6, 2, 9, '1600', 'SI');
 
@@ -67,25 +68,55 @@ CREATE TABLE `factura` (
   `Balance_Neto` float NOT NULL,
   `ITBIS` float NOT NULL,
   `Pago` varchar(10) NOT NULL,
-  `Balance_Final` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Balance_Final` float NOT NULL,
+  `Creado_A` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `factura`
 --
 
-INSERT INTO `factura` (`ID_Factura`, `ID_Paciente`, `User_ID`, `ID_Medico`, `ID_CITA`, `costo_cita`, `Balance_Neto`, `ITBIS`, `Pago`, `Balance_Final`) VALUES
-(5, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
-(6, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
-(7, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
-(8, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
-(9, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
-(10, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
-(11, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
-(12, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
-(13, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
-(14, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620),
-(15, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620);
+INSERT INTO `factura` (`ID_Factura`, `ID_Paciente`, `User_ID`, `ID_Medico`, `ID_CITA`, `costo_cita`, `Balance_Neto`, `ITBIS`, `Pago`, `Balance_Final`, `Creado_A`) VALUES
+(5, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620, '2022-12-08 06:33:42'),
+(6, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620, '2022-12-08 06:33:42'),
+(7, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620, '2022-12-08 06:33:42'),
+(8, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620, '2022-12-08 06:33:42'),
+(9, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620, '2022-12-08 06:33:42'),
+(10, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620, '2022-12-08 06:33:42'),
+(11, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620, '2022-12-08 06:33:42'),
+(12, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620, '2022-12-08 06:33:42'),
+(13, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620, '2022-12-08 06:33:42'),
+(14, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620, '2022-12-08 06:33:42'),
+(15, 1, 9, 3, 4, 9000, 45000, 10620, 'Efectivo', 19620, '2022-12-08 06:33:42'),
+(16, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:38:27'),
+(17, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:38:42'),
+(18, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:40:14'),
+(19, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:43:22'),
+(20, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:44:05'),
+(21, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:44:52'),
+(22, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:45:18'),
+(23, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:45:29'),
+(24, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:49:36'),
+(25, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:49:50'),
+(26, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:50:02'),
+(27, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:50:31'),
+(28, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:50:43'),
+(29, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:55:30'),
+(30, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:55:37'),
+(31, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:56:28'),
+(32, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:56:41'),
+(33, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:56:49'),
+(34, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:56:54'),
+(35, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:58:00'),
+(36, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:58:08'),
+(37, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:58:19'),
+(38, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 06:59:16'),
+(39, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 07:02:18'),
+(40, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 07:02:27'),
+(41, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 07:02:30'),
+(42, 1, 9, 3, 4, 9000, 7500, 10620, 'Efectivo', 19620, '2022-12-08 07:02:48'),
+(43, 63, 9, 3, 1, 1500, 7500, 1770, 'Efectivo', 3270, '2022-12-08 13:09:25'),
+(44, 63, 9, 3, 1, 1500, 7500, 1770, 'Efectivo', 3270, '2022-12-08 13:18:17');
 
 -- --------------------------------------------------------
 
@@ -103,7 +134,7 @@ CREATE TABLE `medico` (
   `Direccion` varchar(50) NOT NULL,
   `Telefono` varchar(12) NOT NULL,
   `Creado_A` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `medico`
@@ -130,7 +161,7 @@ CREATE TABLE `pacientes` (
   `Telefono` varchar(15) NOT NULL,
   `Alergias` varchar(30) NOT NULL,
   `Creado_En` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `pacientes`
@@ -1152,7 +1183,7 @@ CREATE TABLE `usuario` (
   `password` varchar(150) NOT NULL,
   `Fecha_Creado` timestamp NOT NULL DEFAULT current_timestamp(),
   `Tipo_usuario` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -1222,7 +1253,7 @@ ALTER TABLE `citas`
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `ID_Factura` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID_Factura` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `medico`
