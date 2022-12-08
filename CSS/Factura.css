@@ -153,7 +153,7 @@ body{
   color: red;
 }
 .popupc .close:hover {
-  color: #06D85F;
+  color: #f1f1f1;
 }
 .popupc  .content {
   max-height: 30%;
