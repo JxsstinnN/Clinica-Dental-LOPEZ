@@ -15,6 +15,10 @@ body{
             min-width: 300px;
         }
 
+        .pago:hover
+        {
+            color: #333;
+        }
         h1 {
             text-align: center;
         }
@@ -92,7 +96,7 @@ body{
   text-align: center;
 }
 
-.button {
+.button1 {
   font-size: 1em;
   padding: 10px;
   color: #fff;
@@ -102,9 +106,10 @@ body{
   cursor: pointer;
   transition: all 0.3s ease-out;
 }
-.button:hover {
+.button1:hover {
   background: #06D85F;
 }
+
 
 .overlay1 {
   position: fixed;

@@ -127,11 +127,11 @@ if ($_GET) {
         <div class="tab">Datos de pago:
             <p class="inf"><input class="text" name="costo_serv" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
             <p class="inf">Tipo de Pago</p>
-            <a href="#efe">
-                <p class="inf">Efectivo<input type="radio" name="Efectivo" id="Efectivo"></p>
+            <a href="#efe" style="text-decoration: none; color:black;" class="pago">
+                <p class="inf">Efectivo</p>
             </a><br>
-            <a href="#tar">
-                <p class="inf">Tarjeta<input type="radio" name="Efectivo" id="Tarjeta"></p>
+            <a href="#tar" style="text-decoration: none; color:black;" class="pago">
+                <p class="inf">Tarjeta</p>
             </a>
         </div>
 
@@ -160,8 +160,8 @@ if ($_GET) {
                 <div class="content">
                     RD$<p class="inf"><input class="text" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
                     RD$<p class="inf"><input class="text" placeholder="Monto Recibido" name="recibido_cliente"></p>
-
                 </div>
+                <a href="#" class="button1">Aceptar</a>
             </div>
         </div>
 
@@ -170,27 +170,29 @@ if ($_GET) {
                 <h2 class="center">Tarjeta</h2>
                 <a class="close" href="#">&times;</a>
                 <div class="content">
-                    <label for="cname">Name on Card</label>
+                    Name on Card
                     <p class="inf">
-                        <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+                        <input type="text" id="cname" name="nomb_tarjeta" placeholder="John More Doe">
                     </p>
-                    <label for="ccnum">Credit card number</label>
-                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-                    <label for="expmonth">Exp Month</label>
-                    <input type="text" id="expmonth" name="expmonth" placeholder="September">
+                    Credit card number
+                    <p class="inf">
+                        <input type="text" id="ccnum" name="num_tarjeta" placeholder="1111-2222-3333-4444">
+                    </p>
+                    Exp Month
+                    <p class="inf">
+                        <input type="text" id="expmonth" name="mesexp_tarj" placeholder="September">
+                    </p>
+                    Exp Year
+                    <p class="inf">
+                        <input type="text" id="añoexp_tarj" name="añoexp_tarj" placeholder="2018">
+                    </p>
+                    CVV
+                    <p class="inf">
+                        <input type="text" id="cvv" name="cvv" placeholder="352">
+                    </p>
 
-                    <div class="row">
-                        <div class="col-50">
-                            <label for="expyear">Exp Year</label>
-                            <input type="text" id="expyear" name="expyear" placeholder="2018">
-                        </div>
-                        <div class="col-50">
-                            <label for="cvv">CVV</label>
-                            <input type="text" id="cvv" name="cvv" placeholder="352">
-                        </div>
-                    </div>
                 </div>
-
+                <a href="#" class="button1">Aceptar</a>
             </div>
         </div>
         </div>
