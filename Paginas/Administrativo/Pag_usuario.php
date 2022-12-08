@@ -91,7 +91,7 @@ $citas_hoy->execute();
                 </div>
             </a>
 
-            <a href="../Facturas/Facturas.php" class="selected">
+            <a href="../Facturas/Facturas.php" >
                 <div class="option">
                     <i class="fa-solid fa-receipt"></i>
                     <h4>Facturas</h4>

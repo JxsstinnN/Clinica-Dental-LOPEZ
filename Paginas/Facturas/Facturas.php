@@ -78,7 +78,7 @@ $query_citas->execute();
                 </div>
             </a>
 
-            <a href="../Pacientes/Citas.php" class="selected">
+            <a href="../Citas/Citas.php">
                 <div class="option">
                     <i class="fa-solid fa-calendar-check"></i>
                     <h4>Citas</h4>
