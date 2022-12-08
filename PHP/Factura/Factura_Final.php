@@ -32,8 +32,7 @@ $query_factura->bindParam(":PAGO", $tipopago, PDO::PARAM_STR);
 $query_factura->bindParam(":BALANCE_FINAL",$balance_final,PDO::PARAM_STR);
 if($query_factura->execute())
 {
-    $act_cita = $con->prepare("UPDATE CITAS SET 'COMPLETADO' = 'SI' WHERE ID_CITA = :ID_CITA ");
-    $act_cita->bindParam(":ID_CITA", $id_cita, PDO::PARAM_STR);
+    $act_cita = $con->prepare("UPDATE 'citas' SET 'Completado' = 'SI' WHERE 'citas'.'ID_CITA' = '$id_cita'");
     $act_cita->execute();
 }
 
