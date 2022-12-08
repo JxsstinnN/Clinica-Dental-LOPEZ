@@ -198,7 +198,7 @@ if ($_GET) {
 
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
-    <h2>Ver Detalles del medico</h2>
+    <h2>Ver Detalles de la cita</h2>
     <a href='Citas.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
