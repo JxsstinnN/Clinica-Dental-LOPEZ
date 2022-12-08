@@ -62,14 +62,14 @@ $query_medic->execute();
 
             <a href="Doctores_CRUD.php">
                 <div class="option">
-                    <i class="far fa-file" title="Doctores"></i>
+                    <i class="fa-solid fa-user-doctor" title="Doctores"></i>
                     <h4>Doctores</h4>
                 </div>
             </a>
 
             <a href="Pacientes_CRUD.php" class="selected">
                 <div class="option">
-                    <i class="fas fa-video" title="Pacientes"></i>
+                    <i class='bx bx-group' title="Pacientes"></i>
                     <h4>Pacientes</h4>
                 </div>
             </a>

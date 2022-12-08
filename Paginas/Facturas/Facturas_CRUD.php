@@ -57,21 +57,21 @@ $query_medic->execute();
 
         <div class="options__menu">
 
-            <a href="Pag_usuario.php">
+            <a href="../Administrativo/Pag_usuario.php">
                 <div class="option">
                     <i class="fas fa-home" title="Inicio"></i>
                     <h4>Inicio</h4>
                 </div>
             </a>
 
-            <a href="Doctores_CRUD.php" >
+            <a href="../Administrativo/Doctores_CRUD.php">
                 <div class="option">
                     <i class="fa-solid fa-user-doctor" title="Doctores"></i>
                     <h4>Doctores</h4>
                 </div>
             </a>
 
-            <a href="Pacientes_CRUD.php">
+            <a href="../Administrativo/Pacientes_CRUD.php">
                 <div class="option">
                     <i class='bx bx-group' title="Pacientes"></i>
                     <h4>Pacientes</h4>
@@ -84,6 +84,14 @@ $query_medic->execute();
                     <h4>Citas</h4>
                 </div>
             </a>
+
+            <a href="../Facturas/Facturas_index.php">
+                <div class="option">
+                    <i class="fa-solid fa-receipt"></i>
+                    <h4>Facturas</h4>
+                </div>
+            </a>
+
 
             <?php
             if ($_SESSION["tipo_usuario"] == "ADMIN") {
@@ -132,7 +140,7 @@ $query_medic->execute();
                     <td> <?php echo $inf['ID_Paciente']; ?></td>
                     <td> <?php echo $inf['User_ID']; ?></td>
                     <td> <?php echo $inf['ID_Medico']; ?></td>
-                    <td> <?php echo $inf['ID_Cita']; ?></td>
+                    <td> <?php echo $inf['ID_CITA']; ?></td>
                     <td> <?php echo $inf['Balance_Final']; ?></td>
                     <td> <?php echo $inf['Creado_A']; ?></td>
                     <td>

@@ -38,7 +38,7 @@ $query_medic->execute();
             <div class="right-date" id="fecha">AAAAAAAAAAA</div>
         </div>
 
-             <div class="dropdown">
+        <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php echo $_SESSION['nombre']; ?>
             </button>
@@ -84,19 +84,26 @@ $query_medic->execute();
                     <h4>Citas</h4>
                 </div>
             </a>
+            
+            <a href="../Facturas/Facturas_index.php">
+                <div class="option">
+                    <i class="fa-solid fa-receipt"></i>
+                    <h4>Facturas</h4>
+                </div>
+            </a>
 
-             <?php 
-                if($_SESSION["tipo_usuario"]== "ADMIN")
-                {
+
+            <?php
+            if ($_SESSION["tipo_usuario"] == "ADMIN") {
                 echo "<a href='../config/config.php'>
                 <div class='option'>
                     <i class='bx bx-cog' title='Contacto'></i>
                     <h4>Configuración</h4>
                 </div>
             </a>";
-                }
+            }
 
-            
+
             ?>
 
         </div>
@@ -145,18 +152,17 @@ $query_medic->execute();
                                 <font class="tn-in-text">Editar</font>
                             </button> </a>
                         &nbsp;&nbsp;&nbsp;
-                        <?php 
-                        if($_SESSION["tipo_usuario"]== "ADMIN")
-                {
+                        <?php
+                        if ($_SESSION["tipo_usuario"] == "ADMIN") {
                         ?>
-                        <a href="?action=drop&id=<?php echo $inf['ID_Medico'] . '&name=' . $inf['Nombre_Medico']  ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
-                                <font class="tn-in-text">Remove</font>
-                            </button></a>
+                            <a href="?action=drop&id=<?php echo $inf['ID_Medico'] . '&name=' . $inf['Nombre_Medico']  ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
+                                    <font class="tn-in-text">Remove</font>
+                                </button></a>
                     </td>
-                        <?php }?>
-                <?php
+                <?php } ?>
+            <?php
             }
-                ?>
+            ?>
                 </tr>
         </table>
 
