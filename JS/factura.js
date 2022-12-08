@@ -31,7 +31,7 @@ var currentTab = 0; // Current tab is set to be the first tab (0)
                 // if you have reached the end of the form... :
                 if (currentTab >= x.length) {
                     //...the form gets submitted:
-                    document.getElementById("regForm").submit();
+                    document.getElementById("FormFac").submit();
                     return false;
                 }
                 // Otherwise, display the correct tab:
@@ -55,7 +55,7 @@ var currentTab = 0; // Current tab is set to be the first tab (0)
 
            function oculta()
             {
-                document.getElementById("efeHidden").value ='Efectivo';
+                document.getElementById("tipoHidden").value ='Efectivo';
                 document.getElementById('tarA').style.display='none';
             };
 

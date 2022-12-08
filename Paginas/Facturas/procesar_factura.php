@@ -118,9 +118,10 @@ if ($_GET) {
     <main>
         <form action="../../PHP/Factura/Factura_final.php" method="post" id="FormFac">
             <h1>Facturación:</h1>
+
             <div class="tab">Datos del cliente:
                 <p class="inf">Nombre<input class="text" value="<?php echo $nombre_paciente ?>" readonly name="nombre_paciente"></p>
-                <p class="inf">Apellido<input class="text" value="<?php echo $ape_paciente ?>" readonly name="ape_paciente"></p>
+                <p class="inf">Apellido<input class="text" name="apellido_paciente"  value="<?php echo $ape_paciente ?>" readonly></p>
                 <p class="inf">Servicio Realizado<input class="text" value=" <?php echo $titulo; ?>" readonly name="servicio_paciente"></p>
             </div>
 
@@ -198,8 +199,9 @@ if ($_GET) {
             </div>
             </div>
 
-            <input type="hidden" value="" id="tipoHidden" name="tipopago">
+            <input type="hidden" value="" id="tipoHidden" name="tipo_pago">
             <input type="hidden" value="<?php echo $result['ID_Paciente']; ?>" name="id_paciente">
+            <input type="hidden" name="id_cita" value="<?php echo $result['ID_CITA']; ?>">
             <input type="hidden" name="id_medico" value="<?php echo $result['ID_Medico']; ?>">
 
         </form>
