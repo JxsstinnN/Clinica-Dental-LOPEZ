@@ -5,6 +5,7 @@ require_once  "../../Clases/sesion.php";
 
 if ($_POST) {
     $user_id = $_SESSION['user_id'];
+    $dire_paciente = $_POST['dire_paci'];
     $id_paciente = $_POST['id_paciente'];
     $id_medico = $_POST['id_medico'];
     $id_cita = $_POST['id_cita'];
@@ -32,6 +33,7 @@ if ($_POST) {
     if ($query_factura->execute()) {
         $act_cita = $con->prepare("UPDATE `citas` SET `Completado` = 'SI' WHERE `citas`.`ID_CITA` = '$id_cita'");
         $act_cita->execute();
+        $query_factura = $con
     }
 }
 
@@ -79,9 +81,7 @@ if ($_POST) {
             <div class="col-3">
                 <h5>Enviar a</h5>
                 <p>
-                    Santa 
-                    Santa Fe, #19
-                    arianmanuel75@gmail.com
+                    <?php echo $dire_paciente; ?>
                 </p>
             </div>
             <div class="col-3">
@@ -90,7 +90,7 @@ if ($_POST) {
                 <h5>Fecha de vencimiento</h5>
             </div>
             <div class="col-3">
-                <h5>103</h5>
+                <h5></h5>
                 <p>09/05/2019</p>
                 <p>09/05/2019</p>
             </div>
