@@ -115,7 +115,6 @@ $query_medic->execute();
     <main>
         <input type="text" id="BuscarInput" onkeyup="Sort()" placeholder="Busqueda" title="Type in a name" size="20">
 
-        <button type="button" class="btn btn-primary" id="BtnAgregarDoc"><a href="?action=insert">Agregar nuevo dotor </a></button>
         <!-- Script para buscar por nombres-->
         <script src="../../JS/sort.js"></script>
 
@@ -144,18 +143,14 @@ $query_medic->execute();
                     <td> <?php echo $inf['Balance_Final']; ?></td>
                     <td> <?php echo $inf['Creado_A']; ?></td>
                     <td>
-                        <a href="?action=view&id=<?php echo $inf['ID_Medico'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
+                        <a href="?action=view&id=<?php echo $inf['ID_Factura'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-view">
                                 <font class="tn-in-text">Ver</font>
                             </button></a>
-                        &nbsp;&nbsp;&nbsp;
-                        <a href="?action=edit&id=<?php echo $inf['ID_Medico']; ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit">
-                                <font class="tn-in-text">Editar</font>
-                            </button> </a>
                         &nbsp;&nbsp;&nbsp;
                         <?php
                         if ($_SESSION["tipo_usuario"] == "ADMIN") {
                         ?>
-                            <a href="?action=drop&id=<?php echo $inf['ID_Medico'] . '&name=' . $inf['Nombre_Medico']  ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
+                            <a href="?action=drop&id=<?php echo $inf['ID_Factura'] . '&name=' . $inf['Nombre_Medico']  ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
                                     <font class="tn-in-text">Remove</font>
                                 </button></a>
                     </td>
@@ -176,3 +171,86 @@ $query_medic->execute();
 </body>
 
 </html>
+
+<?php
+if ($_GET) {
+    $id = $_GET['id'];
+    $action = $_GET['action'];
+
+    if ($action == 'view') {
+        $query = $con->prepare("SELECT * FROM factura WHERE ID_Factura ='$id'");
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        $ID_Factura = $result['ID_Factura'];
+        $ID_Paciente = $result['ID_Paciente'];
+        $User_ID = $result['User_ID'];
+        $ID_Medico = $result['ID_Medico'];
+        $ID_CITA = $result['ID_CITA'];
+        $costo_cita = $result['costo_cita'];
+        $balance_neto = $result['Balance_Neto'];
+        $itbis = $result['ITBIS'];
+        $pago = $result['Pago'];
+        $balance_Final = $result['Balance_Final'];
+        $creado_A = $result['Creado_A'];
+
+        echo "<div class='overlay' id='divOne'>
+    <div class='wrapper'>
+    <h2>Ver Detalles del medico</h2>
+    <a href='Facturas_CRUD.php' class='close'>&times;</a>
+    <div class='content'>
+    <div class='container'>
+
+    <label>ID_Factura:</label>
+    <strong>" . $ID_Factura . "</strong>
+    <br>
+
+<label>ID_Paciente:</label>
+<strong>" . $ID_Paciente . "</strong>
+<br>
+
+<label>User_ID:</label>
+<strong>" . $User_ID . "</strong>
+<br>
+
+<label>ID_Medico:</label>
+<strong>" . $ID_Medico . "</strong>
+<br>
+
+<label>ID_Cita</label>
+<strong>" . $ID_CITA . "</strong>
+<br>
+
+<label>Costo Cita</label>
+<strong>".$costo_cita."</strong>
+<br>
+
+<label>Balance Neto</label>
+<strong>".$balance_neto."</strong>
+<br>
+
+
+<label>ITBIS</label>
+<strong>".$itbis."</strong>
+<br>
+
+<label>Pago</label>
+<strong>". $pago ."</strong>
+<br>
+
+<label>Balance_Final</label>
+<strong>". $balance_Final ."</strong>
+<br>
+
+<label>Balance_Final</label>
+<strong>". $creado_A ."</strong>
+<br>
+
+
+
+</div>
+</div>
+</div>
+</div>
+"; }
+    }
+?>
