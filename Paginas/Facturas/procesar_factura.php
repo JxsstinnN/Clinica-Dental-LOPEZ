@@ -198,8 +198,7 @@ if ($_GET) {
             </div>
             </div>
 
-            <input type="hidden" value="" id="efeHidden">
-            <input type="hidden" value="" id="tarHidden">
+            <input type="hidden" value="" id="tipoHidden">
 
         </form>
 

@@ -61,7 +61,7 @@ var currentTab = 0; // Current tab is set to be the first tab (0)
 
             function oculta1()
             {
-                document.getElementById("efeHidden").value ='Tarjeta';
+                document.getElementById("tipoHidden").value ='Tarjeta';
                 document.getElementById('efeA').style.display='none';
             };
 
