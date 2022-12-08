@@ -12,7 +12,7 @@ if ($_POST)
     $dire_pac= strtoupper($_POST['dire_pac']);
     $tel_pac = $_POST['telefono_pac'];
 
-    $nuevo_pac = $con->prepare("INSERT INTO pacientes(ID_Medico,Nombre,Apellido,Cedula,Genero,Fecha_Nacimiento,Direccion,Telefono) VALUES(NULL,:nombre_pac,:ape_pac,:cedula_pac,:genero_pac,:fecha_nac_pac,:dire_pac,:tel_pac)");
+    $nuevo_pac = $con->prepare("INSERT INTO pacientes(ID_Paciente,Nombre_Paciente,Apellido_Paciente,Cedula,Genero,Fecha_Nac,Direccion,Telefono) VALUES(NULL,:nombre_pac,:ape_pac,:cedula_pac,:genero_pac,:fecha_nac_pac,:dire_pac,:tel_pac)");
     $nuevo_pac->bindParam(':nombre_pac',$nombre_pac,PDO::PARAM_STR);
     $nuevo_pac->bindParam(':ape_pac',$ape_pac,PDO::PARAM_STR);
     $nuevo_pac->bindParam(':cedula_pac',$cedula_pac,PDO::PARAM_STR);
@@ -23,7 +23,7 @@ if ($_POST)
     if($nuevo_pac->execute())
     {
     echo "<script>
-    alert('Se ha editado correctamente.');
+    alert('Se ha agregado correctamente.');
     window.location.href ='../../Paginas/Administrativo/Pacientes_CRUD.php';
     </script>";
     }
