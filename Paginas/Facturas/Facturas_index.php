@@ -98,6 +98,7 @@ require_once '../../Clases/sesion.php';
     <main>
         <h1>Hola <?php echo $_SESSION['tipo_usuario'] . '&nbsp;' . $_SESSION['nombre']; ?></h1><br>
         <a href="Facturas_CRUD.php">
+
             <div class="card">
                 <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
                 <div class="container">
@@ -106,15 +107,17 @@ require_once '../../Clases/sesion.php';
             </div>
         </a> 
 
-        <a href="Facturas.php">
+        <?php if ($_SESSION['tipo_usuario'] == "SECRE")
+        { 
+        echo '<a href="Facturas.php">
             <div class="card">
                 <img src="../../IMGS/administrativo/cita_icon.png" alt="Avatar" style="width:50px">
                 <div class="container">
                     <h4><b>Facturas Pendientes</b></h4>
                 </div>
             </div>
-        </a>
-
+        </a>'; }
+        ?>
     </main>
 
 
