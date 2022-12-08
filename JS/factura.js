@@ -14,7 +14,7 @@ var currentTab = 0; // Current tab is set to be the first tab (0)
                 if (n == (x.length - 1)) {
                     document.getElementById("nextBtn").innerHTML = "Submit";
                 } else {
-                    document.getElementById("nextBtn").innerHTML = "Next";
+                    document.getElementById("nextBtn").innerHTML = "Siguiente";
                 }
                 // ... and run a function that displays the correct step indicator:
                 fixStepIndicator(n)

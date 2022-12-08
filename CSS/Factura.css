@@ -46,7 +46,6 @@ body{
         }
 
         button {
-            color: #ffffff;
             border: none;
             padding: 10px 20px;
             font-size: 17px;
@@ -98,15 +97,20 @@ body{
 .button1 {
   font-size: 1em;
   padding: 10px;
-  color: #fff;
-  border: 2px solid #06D85F;
+  color: black;
+  border: 2px solid#046ce4e5;;
   border-radius: 20px/50px;
-  text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease-out;
 }
+
+.button1 a
+{
+  text-decoration: none;
+}
+
 .button1:hover {
-  background: #06D85F;
+  color: #046ce4e5;
 }
 
 
@@ -153,7 +157,7 @@ body{
   color: red;
 }
 .popupc .close:hover {
-  color: #f1f1f1;
+  color: #046ce4e5;
 }
 .popupc  .content {
   max-height: 30%;

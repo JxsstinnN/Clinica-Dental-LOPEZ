@@ -89,7 +89,7 @@ if ($_GET) {
                 </div>
             </a>
 
-            <a href="../Pacientes/Citas.php" class="selected">
+            <a href="../Pacientes/Citas.php">
                 <div class="option">
                     <i class="fa-solid fa-calendar-check"></i>
                     <h4>Citas</h4>
@@ -167,40 +167,11 @@ if ($_GET) {
                         RD$<p class="inf"><input class="text" name="costo_servicio" placeholder="Costo del servicio" value="<?php echo $costo ?>" readonly></p>
                         RD$<p class="inf"><input class="text" placeholder="Monto Recibido" name="recibido_cliente"></p>
                     </div>
-                    <a href="#" class="button1" id="efeBtn" onClick="oculta()">Aceptar</a>
+                    <a href="#" class="button1" id="efeBtn" onClick="oculta()" style="text-decoration: none;">Aceptar</a>
                 </div>
             </div>
 
-            <div id="tar" class="overlay1">
-                <div class="popupc">
-                    <h2 class="center">Tarjeta</h2>
-                    <a class="close" href="#">&times;</a>
-                    <div class="content">
-                        Nombre de la tarjeta
-                        <p class="inf">
-                            <input type="text" id="cname" name="nomb_tarjeta" placeholder="">
-                        </p>
-                        Numero de la tarjeta
-                        <p class="inf">
-                            <input type="text" id="ccnum" name="num_tarjeta" placeholder="1111-2222-3333-4444">
-                        </p>
-                        Mes de expiración
-                        <p class="inf">
-                            <input type="text" id="expmonth" name="mesexp_tarj" placeholder="September">
-                        </p>
-                        Año de expiracion
-                        <p class="inf">
-                            <input type="text" id="añoexp_tarj" name="añoexp_tarj" placeholder="2018">
-                        </p>
-                        CVV
-                        <p class="inf">
-                            <input type="text" id="cvv" name="cvv" placeholder="352">
-                        </p>
 
-                    </div>
-                    <a href="#" class="button1" id="efeBtn" onClick="oculta1()">Aceptar</a>
-                </div>
-            </div>
             </div>
             </div>
 
