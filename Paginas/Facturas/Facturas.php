@@ -38,7 +38,7 @@ $query_citas->execute();
             <div class="right-date" id="fecha">AAAAAAAAAAA</div>
         </div>
 
-        <div class="dropdown">
+                        <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php echo $_SESSION['nombre']; ?>
             </button>
@@ -85,17 +85,18 @@ $query_citas->execute();
                 </div>
             </a>
 
-            <?php
-            if ($_SESSION["tipo_usuario"] == "ADMIN") {
+ <?php 
+                if($_SESSION["tipo_usuario"]== "ADMIN")
+                {
                 echo "<a href='../config/config.php'>
                 <div class='option'>
                     <i class='bx bx-cog' title='Contacto'></i>
                     <h4>Configuración</h4>
                 </div>
             </a>";
-            }
+                }
 
-
+            
             ?>
 
 
@@ -142,19 +143,13 @@ $query_citas->execute();
                                 <font class="tn-in-text">Ver</font>
                             </button></a>
                         &nbsp;&nbsp;&nbsp;
-                        <a href="?action=edit&id=<?php echo $inf['ID_CITA']; ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit">
-                                <font class="tn-in-text">Editar</font>
+                        <a href="procesar_factura.php?action=fac&id=<?php echo $inf['ID_CITA']; ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-edit">
+                                <font class="tn-in-text">Facturar</font>
                             </button> </a>
                         &nbsp;&nbsp;&nbsp;
-                        <?php if ($_SESSION["tipo_usuario"] == "ADMIN") { ?>
-                            <a href="?action=drop&id=<?php echo $inf['ID_CITA'] . '&name=' . $inf['ID_Paciente'] ?>" class="non-style-link"><button class="btn-primary-soft btn button-icon btn-delete">
-                                    <font class="tn-in-text">Remove</font>
-                                </button></a>
-                    </td>
-                <?php } ?>
-            <?php
+                <?php
             }
-            ?>
+                ?>
                 </tr>
         </table>
 
@@ -175,7 +170,7 @@ if ($_GET) {
     $id = $_GET['id'];
     $action = $_GET['action'];
 
-
+   
     if ($action == 'view') {
         $query = $con->prepare("SELECT * FROM citas WHERE ID_CITA ='$id'");
         $query->execute();
@@ -210,7 +205,7 @@ if ($_GET) {
 <strong>" . $Hora_Cita . "</strong>
 <br>
 <label>Costo de la cita</label>
-<strong>" . $Costo . "</strong>
+<strong>".$Costo."</strong>
 <br>
 <label>Telefono</label>
 <strong>$Telefono</strong>
@@ -220,110 +215,7 @@ if ($_GET) {
 </div>
 </div>
 ";
-    } else if ($action == 'edit') {
-        $query = $con->prepare("SELECT * FROM citas WHERE ID_CITA ='$id'");
-        $query->execute();
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-        $id_cita = $result['ID_CITA'];
-        $Titulo = $result['Titulo'];
-        $Notas = $result['Notas'];
-        $Mensaje = $result['Mensaje'];
-        $Fecha_Cita = $result['Fecha_Cita'];
-        $Hora_Cita = $result['Hora_Cita'];
-        $Costo = $result['ID_Paciente'];
-
-        echo "<div class='overlay' id='divOne'>
-    <div class='wrapper'>
-    <h2>Editar Detalles del medico</h2>
-    <a href='Citas.php' class='close'>&times;</a>
-    <div class='content'>
-    <div class='container'>
-    <form action='../../PHP/Citas/confirm_edit.php' method='post'>
-    <label>Titulo de la cita</label>
-    <input type='text' name='titulo_cita' id='titulo_cita ' value='" . $Titulo . "'>
-    <input type='hidden' name='id' value='" . $id . "'>
-    <br>
-    <label>Notas de la cita:</label>
-    <input type='text' name='notas_cita' value='" . $Notas . "'>
-    <br>
-    <label>Mensaje adicional de la cita:</label>
-    <input type='text' name='mensaje_cita' value='" . $Mensaje . "'>
-    <br>
-    <label>Fecha de la cita:</label>
-    <input type='text' name='fecha_cita' value='" . $Fecha_Cita . "'>
-    <br>
-    <label>Hora de la cita:</label>
-    <input type='text' name='hora_cita' value='" . $Hora_Cita . "'>
-    <br>
-    <label for='Direccion'>Costo de la cita</label>
-    <input type='text' name='costo_cita' value='" . $Costo . "'>
-    <br>
-<br>
-<input type='submit' value='Aplicar Cambios' onclick='return confirm('¿Estas seguro de Actualizar este campo?');'>
-</form>
-</div>
-</div>
-</div>
-</div>
-";
-    } else if ($action == 'drop') {
-        echo "<div class='overlay' id='divOne'>
-    <div class='wrapper'>
-        <h2>Eliminar Registro de Médico</h2>
-        <a href='Citas.php' class='close'>&times;</a>
-            <div class='content'>
-                <div class='container'>
-                    <form action='../../PHP/Citas/confirm_delete.php' method='post'>
-                        <h4>¿Desea Borrar este registo?</h4>
-                            <br>
-                        <h4>Estará borrando el registro <br>" . $id . "</h4>
-                        <input type='hidden' name='id' value='" . $id . "'>
-                        <input type='submit' value='Aplicar Cambios' onclick='return confirm('¿Estas seguro de Actualizar este campo?');'>
-                    </form>
-</div>
-</div>
-</div>
-</div>";
-    } else if ($action == "insert") {
-        echo   "<div class='overlay' id='divOne'>
-    <div class='wrapper'>
-    <h2>Insertar datos medico</h2>
-    <a href='Citas.php' class='close'>&times;</a>
-    <div class='content'>
-    <div class='container'>
-    <form action='../../PHP/DOCTOR/Nuevo_doctor.php' method='post'>
-    <label>Nombre:</label>
-    <input type='text' name='nombre_doc' id='nombre_doc'>
-    <br>
-    <label for='apellido'>Apellido:</label>
-    <input type='text' name='ape_doc' id='ape_doc'>
-    <br>
-    <label for='Cedula'>Cedula:</label>
-    <input type='text' name='cedula_doc' id='cedula_doc'>
-    <br>
-    <label for='Genero'>Genero:</label>
-     <select name='genero_doc' id='genero_doc'>
-        <option value='F'>Femenino</option>
-        <option value='M'>Masculino</option>
-        </select>
-    <br>
-    <label for='Fecha_Nacimiento'>Fecha de Nacimiento:</label>
-    <input type='text' name='fecha_nac_doc' id='fecha_nac_doc'>
-    <br>
-    <label for='Direccion'>Direccion</label>
-    <input type='text' name='dire_doc' id='dire_doc'>
-    <br>
-<label for='Telefono'>Telefono</label>
-    <input type='text' name='telefono_doc' id='telefono_doc'>
-<br>
-<input type='submit' value='Aplicar Cambios' >
-</form>
-</div>
-</div>
-</div>
-</div>
-";
-    }
+    } 
 }
 
 ?>
