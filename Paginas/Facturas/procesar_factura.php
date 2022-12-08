@@ -138,17 +138,15 @@ if ($_GET) {
                 <a href="#efe" style="text-decoration: none; color:black;" class="pago" id="efeA">
                     <p class="inf">Efectivo</p>
                 </a><br>
-                <a href="#tar" style="text-decoration: none; color:black;" class="pago" id="tarA">
-                    <p class="inf">Tarjeta</p>
-                </a>
+
             </div>
 
 
 
             <div style="overflow:auto;">
                 <div style="float:right;">
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Atras</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
                 </div>
             </div>
 
