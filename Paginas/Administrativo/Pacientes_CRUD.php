@@ -87,7 +87,7 @@ $query_medic->execute();
                     <i class="fa-solid fa-receipt"></i>
                     <h4>Facturas</h4>
                 </div>
-            </a>';
+            </a>
         
 
             <?php
@@ -202,8 +202,8 @@ if ($_GET) {
 
         echo "<div class='overlay' id='divOne'>
     <div class='wrapper'>
-    <h2>Ver Detalles del medico</h2>
-    <a href='pruebalista_pacientes.php' class='close'>&times;</a>
+    <h2>Ver Detalles del paciente</h2>
+    <a href='Pacientes_CRUD.php' class='close'>&times;</a>
     <div class='content'>
     <div class='container'>
 

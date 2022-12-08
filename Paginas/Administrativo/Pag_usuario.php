@@ -98,7 +98,7 @@ $citas_hoy->execute();
                     <i class="fa-solid fa-receipt"></i>
                     <h4>Facturas</h4>
                 </div>
-            </a>';
+            </a>
                 
 
 
