@@ -31,7 +31,7 @@ $data1=$query_medico->fetchAll();
 <div id="modal_container" class="modal-container">
   <div class="modal">
     <h1>Ventana Modal</h1>
-<table width='80%' class='sub-tablke scrolldown add-doc-form-container' border='0'>
+<table width='60%' class='sub-table scrolldown add-doc-form-container' border='0' id="Tabla1">
                         <tbody>
                             <tr>
                                 <td class='label-td' colspan='2'></td>
