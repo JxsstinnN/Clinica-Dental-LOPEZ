@@ -14,7 +14,6 @@ if ($_POST) {
     $servicio = $_POST['servicio_paciente'];
     $costo_servicio = $_POST['costo_servicio'];
     $monto_cliente = $_POST['recibido_cliente'];
-    $num_tarjeta = $_POST['num_tarjeta'];
     $tipopago = $_POST['tipo_pago'];
 
     $itbis = (($costo_servicio * 18) / 100) + $costo_servicio;
